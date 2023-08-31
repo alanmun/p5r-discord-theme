@@ -729,6 +729,32 @@ li:nth-child(even) .message-2CShn3 .avatar-2e8lTP {
   background: var(--hp-green);
 }
 
+.placeholder-1rCBhr {
+  font-family: "persona";
+  font-size: 1em;
+  letter-spacing: 2px;
+}
+
+/* Targets all usernames and "Friends" + "Nitro" at top of DM list */
+.name-2m3Cms {
+  font-family: "New P5";
+  font-size: 0.85em;
+}
+
+/* DIRECT MESSAGES header text, just above list of people to dm */
+.headerText-1qIDDT {
+  font-family: "New P5";
+  font-size: 0.75em;
+  color: #000;
+  background: #fff;
+  letter-spacing: 3px;
+  border-radius: 2px;
+  border: 2px solid #000;
+  /* margin-top: 5px; */
+  padding-left: 10px;
+  transform: skew(12deg);
+}
+
 /* Date dividers */
 
 .divider-IqmEqJ {
@@ -736,6 +762,7 @@ li:nth-child(even) .message-2CShn3 .avatar-2e8lTP {
   border-color: #333;
 }
 
+/* Sets the font for actual date dividers in chats */
 .divider-IqmEqJ .content-3spvdd {
   font-family: "New P5";
   font-size: 0.75em;
@@ -1003,7 +1030,7 @@ path.attachButtonPlus-3IYelE {
 }
 
 /* User Panel (right column fuller display of user) */
-.none-1rXy4P.scrollerBase-1Pkza4 {
+.none-1rXy4P.scrollerBase-1Pkza4:not(.scroller-nxCRu_) {
   background-image: url("https://alanmun.github.io/p5r-discord-theme/p5star.gif");
   background-position: center center;
   background-repeat: no-repeat;
@@ -1012,15 +1039,15 @@ path.attachButtonPlus-3IYelE {
 
 /* User Popout */
 
-.userPopoutInner-nv9Y92.userProfileInner-1ngKnf.userProfileInnerThemedNonPremium-2AJg-H {
+.userPopoutInner-nv9Y92.userProfileInner-1ngKnf {
   background-image: url("https://alanmun.github.io/p5r-discord-theme/p5star.gif");
   background-position: center center;
   background-repeat: no-repeat;
   background-color: rgba(0,0,0,0)
 }
 
-.userPopoutOverlayBackground-3A0Pcz.overlayBackground-2aa7wt {
-  /* background: var(--p5-primary); */
+.userProfileOuterThemed-2BgJCM.userPopoutOuter-1OHwPL, .userProfileOuterThemed-2BgJCM.userProfileOuter-2tQwNf {
+  padding: 0px;
 }
 
 /* Below user popouts are legacy/glitchy */
