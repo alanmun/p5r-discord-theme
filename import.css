@@ -22,7 +22,7 @@
   --theme: var(--p5-primary);
 
   /* New Main Color */
-  --p5-primary: radial-gradient(circle, #e53838, #cc0000);
+  --p5-primary: radial-gradient(circle, #e22525, #cc0000);
   --hp-green: rgba(0, 221, 178, 0.90);
   --mp-pink: rgba(255, 102, 237, 0.867);
   --p5-blue: rgba(64, 193, 251, 0.90);
@@ -737,8 +737,9 @@ li:nth-child(even) .message-2CShn3 .avatar-2e8lTP {
 
 /* Targets all usernames and "Friends" + "Nitro" at top of DM list */
 .name-2m3Cms {
-  font-family: "New P5";
-  font-size: 0.85em;
+  font-family: "persona";
+  font-size: 1em;
+  letter-spacing: 0.5px;
 }
 
 /* DIRECT MESSAGES header text, just above list of people to dm */
