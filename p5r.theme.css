@@ -32,7 +32,7 @@
   --theme: var(--p5-primary);
 
   /* New Main Color */
-  --p5-primary: #cc0001;
+  --p5-primary: radial-gradient(circle, #e53838, #cc0000);
   --hp-green: #00ddb2;
   --mp-pink: #ff66ed;
   --p5-blue: #40c1fb;
@@ -66,6 +66,33 @@
 
   /* Focus */
   -focus-primary: #fff;
+}
+
+div[aria-roledescription="Message"]::before,
+div[aria-roledescription="Message"]::after {
+  content: "";
+  position: absolute;
+  transform-origin: 0% 0%;
+}
+
+div[aria-roledescription="Message"]::before {
+  top: 0px;
+  left: 8%;
+  width: 20%;
+  height: 50px;
+  background-color: white;
+  transform: skew(-19deg);
+  z-index: -1;
+}
+
+div[aria-roledescription="Message"]::after {
+  top: 4%;
+  left: 8.25%;
+  width: 19%;
+  height: 45px;
+  background-color: black;
+  transform: skew(-12deg);
+  z-index: -1;
 }
 
 /* Top Area */
@@ -196,6 +223,21 @@
   color: var(--mp-pink);
 }
 
+/* Mini-user dock under channels */
+
+/* Mute button */
+button[aria-label="Mute"] {
+  background: rgba(255, 102, 237, 0.867); /* p5 pink var, conv'd to rgba */
+}
+
+button[aria-label="Deafen"] {
+  background: rgba(0, 221, 178, 0.90); /* p5 green var, conv'd to rgba */
+}
+
+button[aria-label="User Settings"] {
+  background: rgba(64, 193, 251, 0.90); /* p5 blue var, conv'd to rgba */
+}
+
 /* Date */
 
 .datePicker-70cO23 {
@@ -301,15 +343,20 @@ span {
   font-weight: 700 !important;
 }
 
-/* Left Column */
-
 /* Direct Messages icon */
 .guilds-2JjMmN 
 .tutorialContainer-1pL9QS 
 .wrapper-3kah-n 
 .childWrapper-1j_1ub {
-  background: #000 url(https://alanmun.github.io/p5r-discord-theme/im.png) no-repeat center /
-    135%;
+  background: rgba(0,0,0,0) url(https://alanmun.github.io/p5r-discord-theme/im.png) no-repeat center /
+    105%;
+}
+
+/* Left Column */
+
+/* This enforces primary coloring back onto server bar */
+.scroller-3X7KbA {
+  background: var(--p5-primary) !important;
 }
 
 .guilds-2JjMmN
@@ -475,9 +522,9 @@ svg {
 
 /* Main Message Area */
 
-.chat-2ZfjoI {
+/* .chat-2ZfjoI {
   background: var(--primary-dark);
-}
+} */
 
 .chat-2ZfjoI .title-3qD0b- {
   background: var(--primary-alt);
@@ -557,10 +604,10 @@ svg {
   background: var(--theme);
 }
 
-.theme-dark .message-2CShn3 {
+/* .theme-dark .message-2CShn3 {
   background: var(--primary-dark);
   box-shadow: none;
-}
+} */
 
 .theme-dark .message-2CShn3 .disableInteraction-286MMw {
   background: var(--primary-dark);
@@ -815,24 +862,49 @@ svg {
   top: 100%;
 }
 
+/* Some text appears black when it shouldn't be. If you still see issues, delete first two class? */
+.defaultColor-1EVLSt.lineClamp2Plus-2SCQmH.text-sm-normal-AEQz4v span{
+  color: ghostwhite;
+}
+
 /* Right Members Area */
 
 .member-3-YXUe .name-uJV0GL {
   font-weight: 600;
 }
 
-/* User Popup */
+/* User Panel (right column fuller display of user) */
+.none-1rXy4P.scrollerBase-1Pkza4 {
+  background-image: url("https://alanmun.github.io/p5r-discord-theme/p5star.gif");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: rgba(0,0,0,0)
+}
 
-.userPopout-2j1gM4 {
+/* User Popout */
+
+.userPopoutInner-nv9Y92.userProfileInner-1ngKnf.userProfileInnerThemedNonPremium-2AJg-H {
+  background-image: url("https://alanmun.github.io/p5r-discord-theme/p5star.gif");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: rgba(0,0,0,0)
+}
+
+.userPopoutOverlayBackground-3A0Pcz.overlayBackground-2aa7wt {
+  /* background: var(--p5-primary); */
+}
+
+/* Below user popouts are legacy/glitchy */
+
+/* .userPopout-2j1gM4 {
   font-weight: 700;
-}
+} */
 
-.userPopout-2j1gM4 .headerNormal-3Zn_yu .banner-1YaD3N {
-  background: var(--theme);
-  background: #fff url("https://alanmun.github.io/p5r-discord-theme/p5star.gif") center center;
-}
+/* .userPopout-2j1gM4 .headerNormal-3Zn_yu .banner-1YaD3N {
+  background: red url("https://alanmun.github.io/p5r-discord-theme/p5star.gif") center center;
+} */
 
-.userPopout-2j1gM4 .avatarWrapper-eenWra .wrapper-1VLyxH {
+/* .userPopout-2j1gM4 .avatarWrapper-eenWra .wrapper-1VLyxH {
   border-radius: 0;
 }
 
@@ -911,7 +983,7 @@ svg {
 .userPopout-3XzG_A .footer-1fjuF6 .inputWrapper-31_8H8 input:focus {
   background: #000;
   border-color: #fff;
-}
+} */
 
 /* New Server */
 
@@ -1076,7 +1148,7 @@ svg {
 
 /* Voice */
 
-.slider-1PF9SW .bar-2Qqk5Z {
+/* .slider-1PF9SW .bar-2Qqk5Z {
   background: #fff;
 }
 
@@ -1086,7 +1158,7 @@ svg {
 
 .slider-1PF9SW .grabber-3mFHz2 {
   background: var(--p5-blue);
-}
+} */
 
 /* Everyone popup */
 
