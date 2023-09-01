@@ -22,10 +22,10 @@
   --theme: var(--p5-primary);
 
   /* New Main Color */
-  --p5-primary: radial-gradient(circle, #e53838, #cc0000);
-  --hp-green: #00ddb2;
-  --mp-pink: #ff66ed;
-  --p5-blue: #40c1fb;
+  --p5-primary: radial-gradient(circle, #e22525, #cc0000);
+  --hp-green: rgba(0, 221, 178, 0.90);
+  --mp-pink: rgba(255, 102, 237, 0.867);
+  --p5-blue: rgba(64, 193, 251, 0.90);
 
   /* Standard Variables */
 
@@ -38,6 +38,7 @@
   --background-secondary-alt: var(--primary-alt);
   --background-accent: var(--theme);
   --background-tertiary: var(--theme);
+  --background-folder: rgba(96, 125, 139, 0.4);
 
   /* Channel Text Area */
   --channeltextarea-background: #fff;
@@ -249,15 +250,15 @@ div[aria-roledescription="Message"]::after {
 
 /* Mute button */
 button[aria-label="Mute"] {
-  background: rgba(255, 102, 237, 0.867); /* p5 pink var, conv'd to rgba */
+  background: var(--mp-pink); /* p5 pink var, conv'd to rgba */
 }
 
 button[aria-label="Deafen"] {
-  background: rgba(0, 221, 178, 0.90); /* p5 green var, conv'd to rgba */
+  background: var(--hp-green); 
 }
 
 button[aria-label="User Settings"] {
-  background: rgba(64, 193, 251, 0.90); /* p5 blue var, conv'd to rgba */
+  background: var(--p5-blue); 
 }
 
 /* Date */
@@ -365,13 +366,94 @@ span {
   font-weight: 700 !important;
 }
 
+/* Search bar at top right, near min/max/Xout */
+.searchBar-jGtisZ {
+  border-radius: 0px;
+  transform: rotate(-10deg) skewY(10deg);
+}
+
+/* Search bar above friends list in DMs */
+button.searchBarComponent-3N7dCG {
+  border-radius: 0 !important;
+  transform: rotate(0deg) skewX(-6deg);
+}
+
+/* Direct Messages icon disable masking to remove rounded corners */
+svg.svg-2ifYOU foreignObject {
+  /* mask: none; */
+}
+
+/* DM popup notification profile pics (when someone dms you) */
+.scroller-3X7KbA.none-1rXy4P.scrollerBase-1Pkza4 svg.svg-2ifYOU mask + mask + foreignObject {
+  mask: none;
+}
+div[style="opacity: 1; height: 56px; transform: scale(1);"]:nth-child(even) .listItemWrapper-3d87LP {
+  border: solid 2px white;
+  border-left-width: 4px;
+  border-bottom-width: 1px;
+  background: black;
+  padding: 2px;
+  transform: skewX(-2deg) rotate(2deg);
+}
+div[style="opacity: 1; height: 56px; transform: scale(1);"]:nth-child(odd) .listItemWrapper-3d87LP {
+  border: solid 2px white;
+  border-left-width: 4px;
+  border-bottom-width: 1px;
+  background: black;
+  padding: 2px;
+  transform: skewY(-3deg) rotate(2deg);
+}
+
+/* Server list */
+div[aria-label="Servers"] > :nth-child(odd) div.blobContainer-ikKyFs {
+  mask: none !important;
+  border: solid 2px white;
+  border-left-width: 4px;
+  border-bottom-width: 1px;
+  background: black;
+  padding: 2px;
+  transform: skewX(-2deg) rotate(4deg);
+}
+div[aria-label="Servers"] > :nth-child(even) div.blobContainer-ikKyFs {
+  mask: none;
+  border: solid 2px white;
+  border-right-width: 4px;
+  border-top-width: 1px;
+  background: black;
+  padding: 2px;
+  transform: skewY(4deg) rotate(-2deg);
+}
+div[aria-label="Servers"] > .wrapper-38slSD div.wrapper-2PSQCG {
+  mask: none !important;
+  border: solid 2px white;
+  background: green;
+  transform: skewX(2deg);
+}
+div[aria-label="Servers"] > .wrapper-38slSD svg.svg-2ifYOU foreignObject {
+  mask: none !important;
+  background: none;
+}
+
+/* Nuke radius on any server folder */
+div[aria-label="Servers"] > .wrapper-38slSD .folderIconWrapper-1oRIZr { 
+  border-radius: 0;
+  background-color: transparent !important;
+}
+
+
 /* Direct Messages icon */
 .guilds-2JjMmN 
 .tutorialContainer-1pL9QS 
 .wrapper-3kah-n 
 .childWrapper-1j_1ub {
-  background: rgba(0,0,0,0) url(https://alanmun.github.io/p5r-discord-theme/im.png) no-repeat center /
-    105%;
+  background: rgba(0,0,0,0) url("https://alanmun.github.io/p5r-discord-theme/im.png") no-repeat center /
+    120%;
+  /* mask: none !important; */
+}
+
+/* DM people list */
+.interactive-26HRN_ {
+  border-radius: 0px;
 }
 
 /* Left Column */
@@ -566,17 +648,22 @@ svg {
 
 /* Messages */
 
-.message-2CShn3 .avatar-2e8lTP {
+/* Profile picture box inside of any chat (dm or server) */
+li:nth-child(odd) .message-2CShn3 .avatar-2e8lTP {
   border-radius: 0;
   background-color: #000;
 
   border: 2px solid #fff;
-  transform: rotate(-4deg) skew(3deg);
-  overflow: visible;
-}
-
-.message-2CShn3:nth-child(even) .avatar-2e8lTP {
   transform: rotate(-2deg) skew(3deg);
+  overflow: visible; /* This was set by original author, but seemingly no effect */
+}
+li:nth-child(even) .message-2CShn3 .avatar-2e8lTP {
+  border-radius: 0;
+  background-color: #000;
+
+  border: 2px solid #fff;
+  transform: rotate(2deg) skew(-3deg);
+  overflow: visible; /* This was set by original author, but seemingly no effect */
 }
 
 .message-2CShn3 .markup-eYLPri {
@@ -603,6 +690,9 @@ svg {
 }
 
 /* Message Hover Buttons */
+
+/* Idea: color these buttons? */
+/* aria-label="Add Reaction" */
 
 .message-2CShn3 .buttons-3dF5Kd .wrapper-2vIMkT {
   border-radius: 0;
@@ -639,6 +729,33 @@ svg {
   background: var(--hp-green);
 }
 
+.placeholder-1rCBhr {
+  font-family: "persona";
+  font-size: 1em;
+  letter-spacing: 2px;
+}
+
+/* Targets all usernames and "Friends" + "Nitro" at top of DM list */
+.name-2m3Cms {
+  font-family: "persona";
+  font-size: 1em;
+  letter-spacing: 0.5px;
+}
+
+/* DIRECT MESSAGES header text, just above list of people to dm */
+.headerText-1qIDDT {
+  font-family: "New P5";
+  font-size: 0.75em;
+  color: #000;
+  background: #fff;
+  letter-spacing: 3px;
+  border-radius: 2px;
+  border: 2px solid #000;
+  /* margin-top: 5px; */
+  padding-left: 10px;
+  transform: skew(12deg);
+}
+
 /* Date dividers */
 
 .divider-IqmEqJ {
@@ -646,6 +763,7 @@ svg {
   border-color: #333;
 }
 
+/* Sets the font for actual date dividers in chats */
 .divider-IqmEqJ .content-3spvdd {
   font-family: "New P5";
   font-size: 0.75em;
@@ -673,7 +791,24 @@ svg {
 
 /* User Message Area */
 
-/* .buttons-uaqb-5 */
+/* The add attachment button */
+path.attachButtonPlus-3IYelE {
+  fill: crimson;
+}
+
+/* Buttons inside of and to the right in the message edit box */ 
+.buttons-uaqb-5 button[aria-label="Send a gift"] svg {
+  color: var(--mp-pink);
+}
+.buttons-uaqb-5 button[aria-label="Open GIF picker"] svg {
+  color: var(--hp-green);
+}
+.buttons-uaqb-5 button[aria-label="Open sticker picker"] svg {
+  color: var(--p5-blue);
+}
+.buttons-uaqb-5 button[aria-label="Select emoji"] div.sprite-2lxwfc {
+  filter: unset !important;
+}
 
 .channelTextArea-1VQBuV > div {
   border-radius: 0;
@@ -896,7 +1031,7 @@ svg {
 }
 
 /* User Panel (right column fuller display of user) */
-.none-1rXy4P.scrollerBase-1Pkza4 {
+.none-1rXy4P.scrollerBase-1Pkza4:not(.scroller-nxCRu_) {
   background-image: url("https://alanmun.github.io/p5r-discord-theme/p5star.gif");
   background-position: center center;
   background-repeat: no-repeat;
@@ -905,15 +1040,15 @@ svg {
 
 /* User Popout */
 
-.userPopoutInner-nv9Y92.userProfileInner-1ngKnf.userProfileInnerThemedNonPremium-2AJg-H {
+.userPopoutInner-nv9Y92.userProfileInner-1ngKnf {
   background-image: url("https://alanmun.github.io/p5r-discord-theme/p5star.gif");
   background-position: center center;
   background-repeat: no-repeat;
   background-color: rgba(0,0,0,0)
 }
 
-.userPopoutOverlayBackground-3A0Pcz.overlayBackground-2aa7wt {
-  /* background: var(--p5-primary); */
+.userProfileOuterThemed-2BgJCM.userPopoutOuter-1OHwPL, .userProfileOuterThemed-2BgJCM.userProfileOuter-2tQwNf {
+  padding: 0px;
 }
 
 /* Below user popouts are legacy/glitchy */
