@@ -22,7 +22,7 @@
   --theme: var(--p5-primary);
 
   /* New Main Color */
-  --p5-primary: radial-gradient(circle, #e22525, #cc0000);
+  --p5-primary: radial-gradient(circle, #cf1f1f, #bf0000);
   --p5-primary-accent: rgba(220, 20, 60, 0.9); /* its crimson with alpha */
   --hp-green: rgba(0, 221, 178, 0.90);
   --mp-pink: rgba(255, 102, 237, 0.867);
@@ -423,27 +423,28 @@ div[style="opacity: 1; height: 56px; transform: scale(1);"]:nth-child(odd) .list
 /* Server list */
 div[aria-label="Servers"] > :nth-child(odd) div.blobContainer-ikKyFs {
   mask: none !important;
-  border: solid 2px white;
+  /* border: solid 2px white;
   border-left-width: 4px;
   border-bottom-width: 1px;
-  background: black;
-  padding: 2px;
-  transform: skewX(-2deg) rotate(4deg);
+  background: black; */
+  padding: 2px 5px 2px 0px;
+  transform: skewX(-4deg) rotate(6deg);
 }
 div[aria-label="Servers"] > :nth-child(even) div.blobContainer-ikKyFs {
   mask: none;
-  border: solid 2px white;
+  /* border: solid 2px white;
   border-right-width: 4px;
   border-top-width: 1px;
-  background: black;
-  padding: 2px;
-  transform: skewY(4deg) rotate(-2deg);
+  background: black; */
+  padding: 2px 0px 2px 5px;
+  /* padding-left: 8px; */
+  transform: skewY(4deg) rotate(-6deg);
 }
-div[aria-label="Servers"] > .wrapper-38slSD div.wrapper-2PSQCG {
+div[aria-label="Servers"] > .wrapper-38slSD div.wrapper-2PSQCG { /* Affects folders */
   mask: none !important;
-  border: solid 2px white;
-  background: green;
-  transform: skewX(2deg);
+  /* border: solid 2px white; */
+  background: black;
+  transform: skewX(4deg) rotate(6deg);
 }
 div[aria-label="Servers"] > .wrapper-38slSD svg.svg-2ifYOU foreignObject {
   mask: none !important;
