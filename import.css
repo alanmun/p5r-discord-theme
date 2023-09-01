@@ -23,6 +23,7 @@
 
   /* New Main Color */
   --p5-primary: radial-gradient(circle, #e22525, #cc0000);
+  --p5-primary-accent: rgba(220, 20, 60, 0.9); /* its crimson with alpha */
   --hp-green: rgba(0, 221, 178, 0.90);
   --mp-pink: rgba(255, 102, 237, 0.867);
   --p5-blue: rgba(64, 193, 251, 0.90);
@@ -50,6 +51,7 @@
 
   /* Header */
   --header-primary: #fff !important;
+  --header-font-family: 'New P5';
 
   /* Text */
   --text-link: var(--theme);
@@ -57,6 +59,20 @@
 
   /* Focus */
   -focus-primary: #fff;
+}
+
+/* Applies a background to the chat window. I use ::before to control opacity separately (only on background image) */
+main.chatContent-3KubbW::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: url('https://alanmun.github.io/p5r-discord-theme/im-background.png') !important;
+  background-size: 100% 100% !important;
+  opacity: 0.7;  /* Adjust transparency */
+  z-index: 0;
 }
 
 /* div[aria-roledescription="Message"] div div span{
@@ -456,6 +472,29 @@ div[aria-label="Servers"] > .wrapper-38slSD .folderIconWrapper-1oRIZr {
   border-radius: 0px;
 }
 
+
+div[aria-label="Members"] > h3.membersGroup-2eiWxl:nth-child(even) > span {
+  font-family: var(--header-font-family);
+  font-size: 0.80em;
+  color: #000;
+  background: #fff;
+  letter-spacing: 2px;
+  border-radius: 2px;
+  transform: skewX(9deg);
+  display: inline-block;
+}
+
+div[aria-label="Members"] > h3.membersGroup-2eiWxl:nth-child(odd) > span {
+  font-family: var(--header-font-family);
+  font-size: 0.80em;
+  color: #000;
+  background: #fff;
+  letter-spacing: 2px;
+  border-radius: 2px;
+  transform: skewX(-9deg);
+  display: inline-block;
+}
+
 /* Left Column */
 
 /* This enforces primary coloring back onto server bar */
@@ -649,17 +688,36 @@ svg {
 /* Messages */
 
 /* Profile picture box inside of any chat (dm or server) */
+/* li .header-2jRmjb {
+  background-image: url('https://alanmun.github.io/p5r-discord-theme/PFP.svg');
+  background-repeat: no-repeat;
+  background-position: -150px 0px;
+  z-index: 5;
+  overflow: visible;
+} */
+li:nth-child(odd) .message-2CShn3 {
+  margin-left: 2%;
+}
 li:nth-child(odd) .message-2CShn3 .avatar-2e8lTP {
+  /* left: -2%; */
   border-radius: 0;
-  background-color: #000;
 
-  border: 2px solid #fff;
-  transform: rotate(-2deg) skew(3deg);
+  /* box-shadow: 0px 0px 10px 5px red inset;
+  border: 3px solid white;
+  border-bottom-width: 4px;
+  border-top-width: 0px; */
+  
+  z-index: 1;
   overflow: visible; /* This was set by original author, but seemingly no effect */
+  transform: rotate(-2deg) skew(3deg);
+}
+  /* ^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_ */
+li:nth-child(even) .message-2CShn3 {
+  margin-left: 2%;
 }
 li:nth-child(even) .message-2CShn3 .avatar-2e8lTP {
+  /* left: -2%; */
   border-radius: 0;
-  background-color: #000;
 
   border: 2px solid #fff;
   transform: rotate(2deg) skew(-3deg);
@@ -794,6 +852,10 @@ li:nth-child(even) .message-2CShn3 .avatar-2e8lTP {
 /* The add attachment button */
 path.attachButtonPlus-3IYelE {
   fill: crimson;
+}
+
+button[aria-label="Upload a file or send invites"]:hover {
+  /* : var(--background-primary) !important; */
 }
 
 /* Buttons inside of and to the right in the message edit box */ 
@@ -1033,7 +1095,7 @@ path.attachButtonPlus-3IYelE {
 /* User Panel (right column fuller display of user) */
 .none-1rXy4P.scrollerBase-1Pkza4:not(.scroller-nxCRu_) {
   background-image: url("https://alanmun.github.io/p5r-discord-theme/p5star.gif");
-  background-position: center center;
+  background-position: center 100%;
   background-repeat: no-repeat;
   background-color: rgba(0,0,0,0)
 }
@@ -1049,6 +1111,12 @@ path.attachButtonPlus-3IYelE {
 
 .userProfileOuterThemed-2BgJCM.userPopoutOuter-1OHwPL, .userProfileOuterThemed-2BgJCM.userProfileOuter-2tQwNf {
   padding: 0px;
+}
+
+.userPopoutOverlayBackground-3A0Pcz overlayBackground-2aa7wt
+
+.profileBadges-2pItdR.containerWithContent-2Yws8V.container-1gYwHN {
+  opacity: 1 !important;
 }
 
 /* Below user popouts are legacy/glitchy */
