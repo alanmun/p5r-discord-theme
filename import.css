@@ -873,6 +873,7 @@ li:nth-child(even) .message-2CShn3 .avatar-2e8lTP {
   font-family: "fanransom";
   font-size: 1.5em;
   letter-spacing: 2px;
+  line-height: normal;
 }
 
 /* Overrides first class with more specificity so we don't apply font to every username */
@@ -880,6 +881,13 @@ li:nth-child(even) .message-2CShn3 .avatar-2e8lTP {
   font-family: 'Varela Round';
   font-size: initial;
   letter-spacing: normal;
+}
+
+/* Message Requests, which occassionally appears under Friends and Nitro */
+a[data-list-item-id="private-channels-uid_23___messageRequests"] .name-2m3Cms {
+  font-size: 1.3em;
+  letter-spacing: 1px;
+  white-space: normal;
 }
 
 /* DIRECT MESSAGES header text, just above list of people to dm */
