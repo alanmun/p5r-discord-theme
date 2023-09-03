@@ -90,23 +90,27 @@ main.chatContent-3KubbW::before {
   z-index: 0;
 }
 
+/* the top bar containing min/max/X out */
 .typeWindows-2-g3UY {
-  height: 2%;
+  height: 24px;
 }
 
+/* minimize button */
 div[aria-label="Minimize"] {
-  top: -0.4vh;
-  height: 2.4vh;
+  top: -3px;
+  height: 27px;
 }
 
+/* maximize button */
 div[aria-label="Maximize"] {
-  top: -0.4vh;
-  height: 2.4vh;
+  top: -3px;
+  height: 27px;
 }
 
+/* X out button to quit app */
 div[aria-label="Close"] {
-  top: -0.4vh;
-  height: 2.4vh;
+  top: -3px;
+  height: 27px;
 }
 
 .wordmarkWindows-2dq6rw.wordmark-2u86JB {
@@ -433,7 +437,7 @@ span {
 .searchBar-jGtisZ {
   border-radius: 0px;
   transform: rotate(-10deg) skewY(10deg);
-  height: 2.5vh;
+  height: 29px;
 }
 
 /* "Search" placeholder text in search bar at top right */
