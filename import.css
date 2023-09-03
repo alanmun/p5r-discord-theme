@@ -116,11 +116,11 @@ div[aria-label="Close"] {
 /* Discord logo */
 .wordmarkWindows-2dq6rw.wordmark-2u86JB {
   background: url("https://alanmun.github.io/p5r-discord-theme/discord-inverted-high-quality-transparent.png");
-  background-size: 105% 100%;
-  left: 3px;
+  background-size: 100% 90%;
+  background-repeat: no-repeat;
+  left: 5px;
   top: 3px;
   padding-right: 30px;
-  filter: blur(0.4px);
 }
 
 /* Old discord logo hidden */
