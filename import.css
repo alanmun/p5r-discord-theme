@@ -1,9 +1,10 @@
+
 @import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"); /* Import Varela Font */
 
+/* Closest to ransom note font I could find. It doesn't support special characters though, ffs */
 @font-face {
-  font-family: "P5";
-  src: url("https://alanmun.github.io/p5r-discord-theme/p5hatty.ttf");
-  font-weight: 500;
+  font-family: 'shoplifter';
+  src: url('https://alanmun.github.io/p5r-discord-theme/shoplifter.ttf');
 }
 
 @font-face {
@@ -27,6 +28,7 @@
   --hp-green: rgba(0, 221, 178, 0.90);
   --mp-pink: rgba(255, 102, 237, 0.867);
   --p5-blue: rgba(64, 193, 251, 0.90);
+  --p5-system: rgba(64, 63, 63, 0.866);
 
   /* Standard Variables */
 
@@ -61,6 +63,14 @@
   -focus-primary: #fff;
 }
 
+/* Below is experimenting with making everything Varela with 2 default fonts as backup.
+  Unfortunately though it visually makes no difference basically, besides altering 
+  size of smaller subtexts, which is undesired.
+*/
+body {
+  font-family: "Varela Round", "gg sans", "Noto Sans";
+}
+
 /* Applies a background to the chat window. I use ::before to control opacity separately (only on background image) */
 main.chatContent-3KubbW::before {
   content: "";
@@ -69,9 +79,9 @@ main.chatContent-3KubbW::before {
   left: 0;
   bottom: 0;
   right: 0;
-  background: url('https://alanmun.github.io/p5r-discord-theme/im-background.png') !important;
+  background: var(--p5-system) !important;
   background-size: 100% 100% !important;
-  opacity: 0.7;  /* Adjust transparency */
+  opacity: 0.9;  /* Adjust transparency */
   z-index: 0;
 }
 
@@ -291,7 +301,7 @@ button[aria-label="User Settings"] {
 .datePicker-70cO23 
 .react-datepicker {
   /* background: #000 !important; */
-  background: #000 url(https://alanmun.github.io/p5r-discord-theme/calendar.jpg) center / cover !important;
+  background: #000 url("https://alanmun.github.io/p5r-discord-theme/calendar.png") center / cover !important;
 }
 
 .datePicker-70cO23 
@@ -386,12 +396,24 @@ span {
 .searchBar-jGtisZ {
   border-radius: 0px;
   transform: rotate(-10deg) skewY(10deg);
+  height: 2.5vh;
+}
+
+/* "Search" placeholder text in search bar at top right */
+.public-DraftEditorPlaceholder-root {
+  font-family: 'shoplifter';
+  letter-spacing: 1px;
+  font-size: 1.75em;
+  padding-top: 3px;
 }
 
 /* Search bar above friends list in DMs */
 button.searchBarComponent-3N7dCG {
   border-radius: 0 !important;
   transform: rotate(0deg) skewX(-6deg);
+  font-family: 'shoplifter';
+  font-size: 1.1em !important;
+  letter-spacing: 1px;
 }
 
 /* Direct Messages icon disable masking to remove rounded corners */
@@ -482,6 +504,8 @@ div[aria-label="Members"] > h3.membersGroup-2eiWxl:nth-child(even) > span {
   letter-spacing: 2px;
   border-radius: 2px;
   transform: skewX(9deg);
+  padding-left: 3px;
+  padding-right: 3px;
   display: inline-block;
 }
 
@@ -493,6 +517,8 @@ div[aria-label="Members"] > h3.membersGroup-2eiWxl:nth-child(odd) > span {
   letter-spacing: 2px;
   border-radius: 2px;
   transform: skewX(-9deg);
+  padding-left: 3px;
+  padding-right: 3px;
   display: inline-block;
 }
 
@@ -796,23 +822,35 @@ li:nth-child(even) .message-2CShn3 .avatar-2e8lTP {
 
 /* Targets all usernames and "Friends" + "Nitro" at top of DM list */
 .name-2m3Cms {
-  font-family: "persona";
-  font-size: 1em;
-  letter-spacing: 0.5px;
+  font-family: "shoplifter";
+  font-size: 1.5em;
+  letter-spacing: 2px;
+}
+
+/* Overrides first class with more specificity so we don't apply font to every username */
+.name-2m3Cms > .overflow-1wOqNV {
+  font-family: 'Varela Round';
+  font-size: initial;
+  letter-spacing: normal;
 }
 
 /* DIRECT MESSAGES header text, just above list of people to dm */
-.headerText-1qIDDT {
-  font-family: "New P5";
-  font-size: 0.75em;
-  color: #000;
-  background: #fff;
+h2.privateChannelsHeaderContainer-1UWASm {
+  height: 4vh;
+  margin-left: -5px;
+}
+
+/* The actual span inside of the above DM header */
+h2.privateChannelsHeaderContainer-1UWASm > span {
+  font-family: "shoplifter";
+  font-size: 1.75em;
+  color: #fff;
+  background: var(--p5-primary);
+  line-height: 2vh;
   letter-spacing: 3px;
-  border-radius: 2px;
-  border: 2px solid #000;
-  /* margin-top: 5px; */
-  padding-left: 10px;
+  text-align: center;
   transform: skew(12deg);
+  font-weight: lighter;
 }
 
 /* Date dividers */
