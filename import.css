@@ -119,8 +119,9 @@ div[aria-label="Close"] {
   background-size: 100% 90%;
   background-repeat: no-repeat;
   left: 5px;
-  top: 3px;
+  top: 4px;
   padding-right: 30px;
+  filter: brightness(0) invert(1);
 }
 
 /* Old discord logo hidden */
