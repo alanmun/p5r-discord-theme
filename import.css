@@ -230,12 +230,12 @@ div[aria-roledescription="Message"]::after {
   background: #fff;
 }
 
-.chat-2ZfjoI 
+/* .chat-2ZfjoI 
 .toolbar-3_r2xA 
 .clickable-ZD7xvu:nth-child(2n + 3) 
 .icon-2xnN2Y {
   color: var(--theme);
-}
+} */
 
 .chat-2ZfjoI 
 .toolbar-3_r2xA 
@@ -859,15 +859,6 @@ li:nth-child(even) .message-2CShn3 .avatar-2e8lTP {
   background: var(--hp-green);
 }
 
-.placeholder-1rCBhr {
-  font-family: "fanransom";
-  font-size: 1.5em;
-  line-height: 25px;
-  letter-spacing: 3px;
-  font-weight: bolder;
-  /* color: rgba(245, 39, 80, 0.7); */
-}
-
 /* Targets all usernames and "Friends" + "Nitro" at top of DM list */
 .name-2m3Cms {
   font-family: "fanransom";
@@ -892,7 +883,7 @@ a[data-list-item-id="private-channels-uid_23___messageRequests"] .name-2m3Cms {
 
 /* DIRECT MESSAGES header text, just above list of people to dm */
 h2.privateChannelsHeaderContainer-1UWASm {
-  height: 4vh;
+  height: 43px;
   margin-left: -5px;
 }
 
@@ -903,7 +894,7 @@ h2.privateChannelsHeaderContainer-1UWASm > span {
   font-weight: lighter;
   color: #fff;
   background: var(--p5-primary);
-  line-height: 2vh;
+  line-height: 23px;
   letter-spacing: 1px;
   text-align: center;
   transform: skew(12deg);
@@ -944,13 +935,51 @@ h2.privateChannelsHeaderContainer-1UWASm > span {
 
 /* User Message Area */
 
+/* chat box */
+.scrollableContainer-15eg7h {
+  overflow-y: hidden;
+  padding-right: 8px;
+  border-radius: 0;
+  transform: skewX(-4deg);
+}
+
+/* Holds the buttons inside of the chat box and placeholder text */
+.scrollableContainer-15eg7h .inner-NQg18Y {
+  transform: skewX(4deg); /* This counter-skew unskews the above skew for chat box buttons, which was done for the overall chat box */
+}
+
+/* Affects any text user has written into the chat box */
+.scrollableContainer-15eg7h .inner-NQg18Y .markup-eYLPri span {
+  font-size: 0.96em;
+  font-family: "Varela Round", "gg sans";
+  color: #000;
+}
+
+/* These two affect just inline code formatted text using `backticks` */
+.markup-eYLPri span:is(.before_inlineCode-1zngJj, .inlineCode-ERyvy_, .after_inlineCode-2_JXPm) {
+  background: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Placeholder text for chat box / message box */
+.placeholder-1rCBhr {
+  font-family: "fanransom";
+  font-size: 1.5em;
+  line-height: 25px;
+  letter-spacing: 3px;
+  font-weight: bolder;
+}
+
 /* The add attachment button */
 path.attachButtonPlus-3IYelE {
   fill: crimson;
 }
 
-button[aria-label="Upload a file or send invites"]:hover {
-  /* : var(--background-primary) !important; */
+button.attachButton-_ACFSu:hover path {
+  fill: var(--background-primary) !important;
+}
+
+path.attachButtonPlus-3IYelE:hover {
+  fill: var(--background-primary) !important;
 }
 
 /* Buttons inside of and to the right in the message edit box */ 
@@ -965,25 +994,6 @@ button[aria-label="Upload a file or send invites"]:hover {
 }
 .buttons-uaqb-5 button[aria-label="Select emoji"] div.sprite-2lxwfc {
   filter: unset !important;
-}
-
-.channelTextArea-1VQBuV > div {
-  border-radius: 0;
-  transform: skewX(-4deg);
-}
-
-.channelTextArea-1VQBuV > div .inner-NQg18Y {
-  transform: skewX(4deg);
-}
-
-.channelTextArea-1VQBuV > div .inner-NQg18Y .markup-eYLPri span {
-  font-size: 0.95em;
-}
-
-.markup-eYLPri span {
-  color: #000;
-  /* font-family: "New P5"; */
-  font-family: "Varela Round", sans-serif;
 }
 
 .placeholder-1_mJY1 {
@@ -1097,10 +1107,6 @@ button[aria-label="Upload a file or send invites"]:hover {
 
 .containerDefault-YUSmu3 .iconContainer-21RCa3 svg {
   color: #fff !important;
-}
-
-.containerDefault-YUSmu3:nth-child(2n + 3) .iconContainer-21RCa3 svg {
-  color: var(--theme) !important;
 }
 
 .containerDefault-YUSmu3:hover .iconContainer-21RCa3 {
