@@ -224,12 +224,6 @@ div[aria-roledescription="Message"]::after {
   background: var(--background-accent);
 }
 
-.chat-2ZfjoI
-.toolbar-3_r2xA
-.clickable-ZD7xvu:nth-child(2n + 3).selected-29KTGM {
-  background: #fff;
-}
-
 /* .chat-2ZfjoI 
 .toolbar-3_r2xA 
 .clickable-ZD7xvu:nth-child(2n + 3) 
