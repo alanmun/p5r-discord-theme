@@ -542,23 +542,28 @@ div[style="opacity: 1; height: 56px; transform: scale(1);"]:nth-child(odd) .list
   transform: skewY(-3deg) rotate(2deg);
 }
 
+/* Dunno what this things deal is, its some strange box shadow looking edge near the chatbox. This rule blocks it from appearing, its ugly and looks like a glitch */
+.theme-dark .form-3gdLxP:before {
+  background: none !important;
+}
+
 /* Server list etc */
 
 /* Normal and inverted jiggle, depending on odd or even server */
 @keyframes jiggleNormal {
   0%, 100% {
-    transform: rotate(-3deg) scale(1.4);
+    transform: rotate(3deg) scale(1.4);
   }
   50% {
-    transform: rotate(3deg) scale(1.4);
+    transform: rotate(-3deg) scale(1.4);
   }
 }
 @keyframes jiggleInverted {
   0%, 100% {
-    transform: rotate(-3deg) scale(-1.4);
+    transform: rotate(3deg) scale(-1.4);
   }
   50% {
-    transform: rotate(3deg) scale(-1.4);
+    transform: rotate(-3deg) scale(-1.4);
   }
 }
 @keyframes jiggleFolder {
