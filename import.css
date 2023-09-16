@@ -129,7 +129,6 @@ div[aria-label="Close"] {
   visibility: hidden;
 }
 
-
 /* div[aria-roledescription="Message"] div div span{
   line-height: 400% !important;
   padding-left: 2%;
@@ -147,20 +146,6 @@ div[aria-roledescription="Message"] div div{
 /* ^^^^^^^^^^ where I left off ^^^^^^^^^ */
 
 
-/* div[aria-roledescription="Message"].groupStart-3Mlgv1 div div span{
-  background-image: url("https://alanmun.github.io/p5r-discord-theme/Chat.svg");
-  background-repeat: no-repeat;
-  background-size: 500% 500%;
-  background-position-x: 0;
-  background-position-y: -50000;
-
-  padding-top: 2%;
-} */
-
-/* This one also selects for message text (no pfp, username, timestamp iirc) */
-.markup-eYLPri.messageContent-2t3eCI {
-  
-}
 
 /* div[aria-roledescription="Message"]::before,
 div[aria-roledescription="Message"]::after {
@@ -327,6 +312,12 @@ button[aria-label="User Settings"] {
 }
 
 /* Date */
+
+.timestampVisibleOnHover-9PEuZS {
+  font-family: 'New P5';
+}
+
+/* Everything below this for date is from og author and probably broken code */
 
 .datePicker-70cO23 {
   background: #000 !important;
