@@ -129,6 +129,7 @@ div[aria-label="Close"] {
   visibility: hidden;
 }
 
+
 /* div[aria-roledescription="Message"] div div span{
   line-height: 400% !important;
   padding-left: 2%;
@@ -146,6 +147,20 @@ div[aria-roledescription="Message"] div div{
 /* ^^^^^^^^^^ where I left off ^^^^^^^^^ */
 
 
+/* div[aria-roledescription="Message"].groupStart-3Mlgv1 div div span{
+  background-image: url("https://alanmun.github.io/p5r-discord-theme/Chat.svg");
+  background-repeat: no-repeat;
+  background-size: 500% 500%;
+  background-position-x: 0;
+  background-position-y: -50000;
+
+  padding-top: 2%;
+} */
+
+/* This one also selects for message text (no pfp, username, timestamp iirc) */
+.markup-eYLPri.messageContent-2t3eCI {
+  
+}
 
 /* div[aria-roledescription="Message"]::before,
 div[aria-roledescription="Message"]::after {
@@ -313,9 +328,12 @@ button[aria-label="User Settings"] {
 
 /* Date */
 
-.timestampVisibleOnHover-9PEuZS {
+/* Experimenting with New P5 for hovered over timestamps, idk if it improves anything rly */
+/* .timestampVisibleOnHover-9PEuZS {
   font-family: 'New P5';
-}
+  font-size: 0.65em !important;
+  font-weight: lighter !important;
+} */
 
 /* Everything below this for date is from og author and probably broken code */
 
@@ -422,6 +440,25 @@ span {
   font-weight: 700 !important;
 }
 
+/* BetterDiscord blue notifications */
+.bd-notice:first-child {
+  border-radius: 0;
+  background: white;
+  /* border: solid black 3px; */
+  color: black;
+  width: 90vw;
+  margin-left: 1vw;
+  transform: skewX(5deg);
+}
+
+.bd-notice:first-child > * {
+  color: black;
+}
+
+#bd-notices {
+  transform: rotate(-10deg) skewY(10deg)
+}
+
 /* Search bar at top right, near min/max/Xout */
 .searchBar-jGtisZ {
   border-radius: 0px;
@@ -446,6 +483,38 @@ button.searchBarComponent-3N7dCG {
   letter-spacing: 0px;
 }
 
+/* add notification icon when someone dms you */
+.lowerBadge-3j0ZAg {
+  background: url(https://alanmun.github.io/p5r-discord-theme/notification.gif);
+  filter: drop-shadow(0 0 0.5px black);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  transform: skewX(0deg) scaleX(-1) !important;
+  margin-bottom: -5px;
+  border-radius: 0;
+  height: 26px;
+  width: 19px;
+}
+ /* Restyling the number of dms notification number */
+.lowerBadge-3j0ZAg > div {
+  padding-top: 14px;
+  padding-right: 6px;
+  background: transparent !important;
+  transform: skewX(0deg) scaleX(-1.3) scaleY(1.3) !important;
+  color: rgba(255, 59, 59, 0.9);
+  font-family: 'shoplifter';
+  text-shadow: 
+    -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+/* Restyle only the badges under blobContainers (non-folders), makes their notif sizes equal */
+div.blobContainer-ikKyFs .lowerBadge-3j0ZAg {
+  transform: scaleX(-0.75) scaleY(0.75) !important;
+}
+
 /* Direct Messages icon disable masking to remove rounded corners */
 svg.svg-2ifYOU foreignObject {
   /* mask: none; */
@@ -455,6 +524,7 @@ svg.svg-2ifYOU foreignObject {
 .scroller-3X7KbA.none-1rXy4P.scrollerBase-1Pkza4 svg.svg-2ifYOU mask + mask + foreignObject {
   mask: none;
 }
+
 div[style="opacity: 1; height: 56px; transform: scale(1);"]:nth-child(even) .listItemWrapper-3d87LP {
   border: solid 2px white;
   border-left-width: 4px;
@@ -472,28 +542,74 @@ div[style="opacity: 1; height: 56px; transform: scale(1);"]:nth-child(odd) .list
   transform: skewY(-3deg) rotate(2deg);
 }
 
-/* Server list */
+/* Server list etc */
+
+/* Normal and inverted jiggle, depending on odd or even server */
+@keyframes jiggleNormal {
+  0%, 100% {
+    transform: rotate(-3deg) scale(1.4);
+  }
+  50% {
+    transform: rotate(3deg) scale(1.4);
+  }
+}
+@keyframes jiggleInverted {
+  0%, 100% {
+    transform: rotate(-3deg) scale(-1.4);
+  }
+  50% {
+    transform: rotate(3deg) scale(-1.4);
+  }
+}
+@keyframes jiggleFolder {
+  0%, 100% {
+    transform: rotate(-3deg) scale(1);
+  }
+  50% {
+    transform: rotate(3deg) scale(1);
+  }
+}
+
+div[aria-label="Servers"] > :nth-child(odd) div.blobContainer-ikKyFs:hover {
+  animation: jiggleInverted 0.6s infinite;
+}
 div[aria-label="Servers"] > :nth-child(odd) div.blobContainer-ikKyFs {
-  mask: none !important;
-  /* border: solid 2px white;
-  border-left-width: 4px;
-  border-bottom-width: 1px;
-  background: black; */
-  padding: 2px 15px 2px 0px;
-  transform: skewX(-4deg) rotate(6deg);
+  background: url('https://alanmun.github.io/p5r-discord-theme/spikyCircleMenuButton.svg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+  margin-top: 15px;
+  width: 50px;
+  transform: skewX(-4deg) rotate(6deg) scale(-1.4);
+}
+div[aria-label="Servers"] > :nth-child(odd) div.blobContainer-ikKyFs img {
+  transform: scale(-0.65);
+  border-radius: 50%;
+}
+div[aria-label="Servers"] > :nth-child(even) div.blobContainer-ikKyFs:hover {
+  animation: jiggleNormal 0.6s infinite;
 }
 div[aria-label="Servers"] > :nth-child(even) div.blobContainer-ikKyFs {
-  mask: none;
-  /* border: solid 2px white;
-  border-right-width: 4px;
-  border-top-width: 1px;
-  background: black; */
-  padding: 2px 0px 2px 18px;
-  /* padding-left: 8px; */
+  margin-top: 15px;
+  width: 50px;
   transform: skewY(4deg) rotate(-6deg);
+  background: url('https://alanmun.github.io/p5r-discord-theme/spikyCircleMenuButton.svg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+  transform: skewX(-4deg) rotate(6deg) scale(1.4);
 }
-div[aria-label="Servers"] > .wrapper-38slSD div.wrapper-2PSQCG { /* Affects folders */
-  mask: none !important;
+div[aria-label="Servers"] > :nth-child(even) div.blobContainer-ikKyFs img {
+  transform: scale(0.65);
+  border-radius: 50%;
+}
+
+/* Affects folders */
+div[aria-label="Servers"] > .wrapper-38slSD div.wrapper-2PSQCG:hover {
+  animation: jiggleFolder 0.6s infinite;
+}
+div[aria-label="Servers"] > .wrapper-38slSD div.wrapper-2PSQCG { 
+  margin-top: 15px;
   /* border: solid 2px white; */
   background: black;
   transform: skewX(4deg) rotate(6deg);
@@ -849,13 +965,15 @@ li:nth-child(even) .message-2CShn3 .avatar-2e8lTP {
   font-family: "fanransom";
   font-size: 1.5em;
   letter-spacing: 2px;
-  line-height: normal;
+  line-height: 100%;
+  margin-top: 5px;
 }
 
 /* Overrides first class with more specificity so we don't apply font to every username */
 .name-2m3Cms > .overflow-1wOqNV {
   font-family: 'Varela Round';
   font-size: initial;
+  line-height: 120%;
   letter-spacing: normal;
 }
 
