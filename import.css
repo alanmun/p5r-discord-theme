@@ -907,10 +907,6 @@ li:nth-child(even) .message-2CShn3 .avatar-2e8lTP {
   font-size: 0.85em;
 }
 
-.message-2CShn3 .markup-eYLPri span {
-  color: var(--theme);
-}
-
 .message-2CShn3 .markup-eYLPri span:hover {
   background: #fff;
   color: #000;
@@ -1043,11 +1039,17 @@ h2.privateChannelsHeaderContainer-1UWASm > span {
 
 /* User Message Area */
 
+/* TODO: chat box glitches out when massive amount of text dumped */
+
 /* chat box */
 .scrollableContainer-15eg7h {
   overflow-y: hidden;
   padding-right: 8px;
   border-radius: 0;
+}
+
+/* Seems to be a black element behind the chat box, should have the skew instead of chat box */
+.channelTextArea-1VQBuV {
   transform: skewX(-4deg);
 }
 
