@@ -1,6 +1,8 @@
 # p5r-discord-theme
 Theme for Better Discord inspired by Persona 5 Royal
 
+**Important:** This theme only works with the basic dark theme provided for free in Discord. If you are using light mode, switch to dark mode. If you are a Nitro subscriber and you are using the color themes provided by Discord (as of writing they are a Beta feature) you should also switch off of them and use the basic dark theme.
+
 ## Installing
 `p5r.theme.css` is the only file you need. All other files in the repository are loaded via the internet. Place this in your themes folder, mine for example is here: `C:\Users\MY_USERNAME\AppData\Roaming\BetterDiscord\themes`
 
