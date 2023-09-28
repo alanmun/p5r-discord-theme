@@ -51,6 +51,9 @@
   /* Channel Text Area */
   --channeltextarea-background: #fff;
 
+  /* Input backgrounds, similar to above channel text area */
+  --input-background: #fff;
+
   /* Scrollbar */
   --scrollbar-thin-thumb: var(--theme);
   --scrollbar-auto-thumb: var(--theme);
@@ -61,8 +64,11 @@
   --header-font-family: 'New P5';
 
   /* Text */
-  --text-link: var(--theme);
+  --text-link: var(--p5-blue);
   --text-muted: #fff;
+  --text-on-white-background: #000;
+  --text-normal: var(--text-on-white-background);
+  --text-on-red-background: #fff;
 
   /* Focus */
   -focus-primary: #fff;
@@ -157,10 +163,6 @@ div[aria-roledescription="Message"] div div{
   padding-top: 2%;
 } */
 
-/* This one also selects for message text (no pfp, username, timestamp iirc) */
-.markup-eYLPri.messageContent-2t3eCI {
-  
-}
 
 /* div[aria-roledescription="Message"]::before,
 div[aria-roledescription="Message"]::after {
@@ -188,6 +190,21 @@ div[aria-roledescription="Message"]::after {
   transform: skew(-12deg);
   z-index: -1;
 } */
+
+/* Active Now right column section in Friends tab */
+.itemCard-3Etziu {
+  border-radius: 0;
+  background: #fff;
+}
+.itemCard-3Etziu:hover {
+  background: rgb(240, 240, 240) !important;
+}
+.itemCard-3Etziu.active-1W_Gl9 {
+  background: rgb(220, 220, 220) !important;
+}
+.itemCard-3Etziu span { /* Affects the text saying what they're doing (Dota 2 - 52 mins) */
+  color: var(--text-on-white-background);
+}
 
 /* Top Area */
 
@@ -224,13 +241,6 @@ div[aria-roledescription="Message"]::after {
   background: var(--background-accent);
 }
 
-/* .chat-2ZfjoI 
-.toolbar-3_r2xA 
-.clickable-ZD7xvu:nth-child(2n + 3) 
-.icon-2xnN2Y {
-  color: var(--theme);
-} */
-
 .chat-2ZfjoI 
 .toolbar-3_r2xA 
 .clickable-ZD7xvu:hover {
@@ -263,7 +273,7 @@ div[aria-roledescription="Message"]::after {
   background: rgb(12, 12, 12);
   box-shadow: 0 0 0 2px #fff;
   border-radius: 2px;
-  color: #fff;
+  color: var(--text-on-red-background);
 }
 
 .queryContainer-ZunrLZ {
@@ -462,8 +472,12 @@ span {
 /* Search bar at top right, near min/max/Xout */
 .searchBar-jGtisZ {
   border-radius: 0px;
-  transform: rotate(-10deg) skewY(10deg);
   height: 29px;
+  transform: skew(3deg);
+  color: var(--text-on-red-background);
+}
+.searchBar-jGtisZ:hover { /* TODO: This is too weak because it scales differently than the element I designed pulsate for */
+  animation: pulsate 0.6s infinite;
 }
 
 /* "Search" placeholder text in search bar at top right */
@@ -481,6 +495,19 @@ button.searchBarComponent-3N7dCG {
   font-family: 'shoplifter';
   font-size: 1.25em !important;
   letter-spacing: 0px;
+}
+
+/* Targets the real search bar that appears when in friends tab, above the currently online users, probably targets others too */
+.container-2oNtJn {
+  border-radius: 0;
+  border: solid white 1.2pt;
+  transform: skew(3deg);
+}
+.container-2oNtJn:hover {
+  animation: pulsate 0.6s infinite;
+}
+input.input-2m5SfJ { /* Text for this bar exists in an input */
+  color: var(--text-on-red-background);
 }
 
 /* add notification icon when someone dms you */
@@ -548,33 +575,6 @@ div[style="opacity: 1; height: 56px; transform: scale(1);"]:nth-child(odd) .list
 }
 
 /* Server list etc */
-
-/* Normal and inverted jiggle, depending on odd or even server */
-@keyframes jiggleNormal {
-  0%, 100% {
-    transform: rotate(3deg) scale(1.4);
-  }
-  50% {
-    transform: rotate(-3deg) scale(1.4);
-  }
-}
-@keyframes jiggleInverted {
-  0%, 100% {
-    transform: rotate(3deg) scale(-1.4);
-  }
-  50% {
-    transform: rotate(-3deg) scale(-1.4);
-  }
-}
-@keyframes jiggleFolder {
-  0%, 100% {
-    transform: rotate(-3deg) scale(1);
-  }
-  50% {
-    transform: rotate(3deg) scale(1);
-  }
-}
-
 div[aria-label="Servers"] > :nth-child(odd) div.blobContainer-ikKyFs:hover {
   animation: jiggleInverted 0.6s infinite;
 }
@@ -964,7 +964,7 @@ li:nth-child(even) .message-2CShn3 .avatar-2e8lTP {
 /* Targets all usernames and "Friends" + "Nitro" at top of DM list */
 .name-2m3Cms {
   font-family: "fanransom";
-  font-size: 1.5em;
+  font-size: 1.3em;
   letter-spacing: 2px;
   line-height: 100%;
   margin-top: 5px;
@@ -987,8 +987,8 @@ a[data-list-item-id="private-channels-uid_23___messageRequests"] .name-2m3Cms {
 
 /* DIRECT MESSAGES header text, just above list of people to dm */
 h2.privateChannelsHeaderContainer-1UWASm {
-  height: 43px;
-  margin-left: -5px;
+  height: 50px;
+  margin-left: -7px;
 }
 
 /* The actual span inside of the above DM header */
@@ -998,10 +998,12 @@ h2.privateChannelsHeaderContainer-1UWASm > span {
   font-weight: lighter;
   color: #fff;
   background: var(--p5-primary);
-  line-height: 23px;
+  line-height: 29px;
   letter-spacing: 1px;
   text-align: center;
   transform: skew(12deg);
+  /* border: rgb(200, 200, 200) 0.5px; 
+  border-style: solid; */
 }
 
 /* Date dividers */
@@ -1041,6 +1043,8 @@ h2.privateChannelsHeaderContainer-1UWASm > span {
 
 /* TODO: chat box glitches out when massive amount of text dumped */
 
+
+
 /* chat box */
 .scrollableContainer-15eg7h {
   overflow-y: hidden;
@@ -1048,7 +1052,7 @@ h2.privateChannelsHeaderContainer-1UWASm > span {
   border-radius: 0;
 }
 
-/* Seems to be a black element behind the chat box, should have the skew instead of chat box */
+/* Seems to be a black element behind the chat box, which should have the skew instead of chat box */
 .channelTextArea-1VQBuV {
   transform: skewX(-4deg);
 }
@@ -1104,6 +1108,11 @@ path.attachButtonPlus-3IYelE:hover {
 }
 .buttons-uaqb-5 button[aria-label="Select emoji"] div.sprite-2lxwfc {
   filter: unset !important;
+}
+
+/* When editing a message, the helper text that appears (escape to cancel * enter to save) */
+.operations-3q3u6E {
+  color: var(--header-secondary);
 }
 
 .placeholder-1_mJY1 {
@@ -1186,8 +1195,12 @@ path.attachButtonPlus-3IYelE:hover {
   right: 0;
 }
 
-/* Mention override cause it's too hard to read as is */
+/* Embedded content's description text */
+.embedDescription-1DrJxZ {
+  color: #fff;
+}
 
+/* Mention override cause it's too hard to read as is */
 .slateTextArea-27tjG0 .mention {
   background: var(--mp-pink) !important;
   color: #fff;
@@ -1324,102 +1337,9 @@ path.attachButtonPlus-3IYelE:hover {
   padding: 0px;
 }
 
-.userPopoutOverlayBackground-3A0Pcz overlayBackground-2aa7wt
-
 .profileBadges-2pItdR.containerWithContent-2Yws8V.container-1gYwHN {
   opacity: 1 !important;
 }
-
-/* Below user popouts are legacy/glitchy */
-
-/* .userPopout-2j1gM4 {
-  font-weight: 700;
-} */
-
-/* .userPopout-2j1gM4 .headerNormal-3Zn_yu .banner-1YaD3N {
-  background: red url("https://alanmun.github.io/p5r-discord-theme/p5star.gif") center center;
-} */
-
-/* .userPopout-2j1gM4 .avatarWrapper-eenWra .wrapper-1VLyxH {
-  border-radius: 0;
-}
-
-.userPopout-2j1gM4 .avatar-2Vndt_ {
-  border-color: var(--theme);
-}
-
-.userPopout-2j1gM4 .avatarWrapper-eenWra svg foreignObject img {
-  mask: url("https://alanmun.github.io/p5r-discord-theme/im.png");
-  transform: rotate(4deg);
-}
-
-.userPopout-2j1gM4 .avatarWrapper-eenWra .avatarHint-k7pYop foreignObject {
-  mask: url("https://alanmun.github.io/p5r-discord-theme/im.png");
-}
-
-.userPopout-2j1gM4 .avatarWrapper-eenWra .avatarHint-k7pYop foreignObject img {
-  transform: rotate(4deg);
-}
-
-.userPopout-3XzG_A .header-2BwW8b .headerText-2sdzFM {
-  background: #fff;
-  border-radius: 2px;
-  border: 2px solid #000;
-  padding: 2px;
-  transform: skewY(3deg);
-  color: var(--theme);
-}
-
-.userPopout-3XzG_A .header-2BwW8b .headerText-2sdzFM .headerName-fajvi9 {
-  color: var(--theme);
-}
-
-.userPopout-3XzG_A .header-2BwW8b .headerText-2sdzFM .username-2b1r56 {
-  color: var(--theme);
-}
-
-.userPopout-3XzG_A .header-2BwW8b .headerText-2sdzFM .username-2b1r56 + span {
-  color: #000;
-}
-.userPopout-3XzG_A .header-2BwW8b .customStatus-1bh2V9 {
-  display: inline-block;
-  color: #fff;
-  background: var(--theme);
-  padding: 2px 5px;
-  border-radius: 2px;
-  border: 2px solid #000;
-  transform: skewY(2.5deg);
-}
-
-.userPopout-3XzG_A .activityUserPopout-2yItg2 {
-  background: var(--theme);
-}
-
-.userPopout-3XzG_A .activityUserPopout-2yItg2 .headerTextNormal-2mGWX3 {
-  background: #fff;
-  border-radius: 2px;
-  border: 2px solid #000;
-  color: var(--theme);
-  display: flex;
-  justify-content: center;
-}
-
-.userPopout-3XzG_A .body-3iLsc4,
-.userPopout-3XzG_A .footer-1fjuF6 {
-  background: rgb(12, 12, 12);
-}
-
-.userPopout-3XzG_A .textarea-2r0oV8,
-.userPopout-3XzG_A .footer-1fjuF6 .inputWrapper-31_8H8 input {
-  border-color: var(--theme);
-  background: rgba(50, 50, 50, 0.1);
-}
-
-.userPopout-3XzG_A .textarea-2r0oV8:focus,
-.userPopout-3XzG_A .footer-1fjuF6 .inputWrapper-31_8H8 input:focus {
-  background: #000;
-  border-color: #fff;
-} */
 
 /* New Server */
 
@@ -1582,6 +1502,11 @@ path.attachButtonPlus-3IYelE:hover {
   background: #000;
 }
 
+/* Input text boxes (for example the boxes that appear when editing user profile for display name and pronouns) */
+input.input-3O04eu {
+  border-radius: 0;
+}
+
 /* Voice */
 
 /* .slider-1PF9SW .bar-2Qqk5Z {
@@ -1730,4 +1655,52 @@ path.attachButtonPlus-3IYelE:hover {
 
 .botTagVerified-1klIIt {
   color: #fff;
+}
+
+/* Animations */
+
+/* TODO: animation that stretches corners of an element erratically like in p5 */
+@keyframes erraticStretch {
+  0%, 100% {
+    transform: scaleX(1) scaleY(1) skew(3deg);
+  }
+  50% {
+    transform: scaleX(1.003) scaleY(1.01) skew(3deg);
+  }
+}
+
+/* Zooms in and out a tiny bit */
+@keyframes pulsate {
+  0%, 100% {
+    transform: scaleX(1) scaleY(1) skew(3deg);
+  }
+  50% {
+    transform: scaleX(1.003) scaleY(1.01) skew(3deg);
+  }
+}
+
+/* Normal and inverted jiggle, depending on odd or even server */
+@keyframes jiggleNormal {
+  0%, 100% {
+    transform: rotate(3deg) scale(1.4);
+  }
+  50% {
+    transform: rotate(-3deg) scale(1.4);
+  }
+}
+@keyframes jiggleInverted {
+  0%, 100% {
+    transform: rotate(3deg) scale(-1.4);
+  }
+  50% {
+    transform: rotate(-3deg) scale(-1.4);
+  }
+}
+@keyframes jiggleFolder {
+  0%, 100% {
+    transform: rotate(-3deg) scale(1);
+  }
+  50% {
+    transform: rotate(3deg) scale(1);
+  }
 }
