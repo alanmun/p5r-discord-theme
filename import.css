@@ -1,5 +1,5 @@
-
-@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"); /* Import Varela Font */
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+/* Import Varela Font */
 
 /* Closest to ransom note font I could find. It doesn't support special characters though, ffs */
 @font-face {
@@ -29,7 +29,8 @@
 
   /* New Main Color */
   --p5-primary: radial-gradient(circle, #c31e1e, #af0000);
-  --p5-primary-accent: rgba(220, 20, 60, 0.9); /* its crimson with alpha */
+  --p5-primary-accent: rgba(220, 20, 60, 0.9);
+  /* its crimson with alpha */
   --hp-green: rgba(0, 221, 178, 0.90);
   --mp-pink: rgba(255, 102, 237, 0.867);
   --p5-blue: rgba(64, 193, 251, 0.90);
@@ -92,7 +93,8 @@ main.chatContent-3KubbW::before {
   right: 0;
   background: var(--p5-system) !important;
   background-size: 100% 100% !important;
-  opacity: 0.9;  /* Adjust transparency */
+  opacity: 0.9;
+  /* Adjust transparency */
   z-index: 0;
 }
 
@@ -131,7 +133,7 @@ div[aria-label="Close"] {
 }
 
 /* Old discord logo hidden */
-.wordmarkWindows-2dq6rw.wordmark-2u86JB > svg {
+.wordmarkWindows-2dq6rw.wordmark-2u86JB>svg {
   visibility: hidden;
 }
 
@@ -196,21 +198,23 @@ div[aria-roledescription="Message"]::after {
   border-radius: 0;
   background: #fff;
 }
+
 .itemCard-3Etziu:hover {
   background: rgb(240, 240, 240) !important;
 }
+
 .itemCard-3Etziu.active-1W_Gl9 {
   background: rgb(220, 220, 220) !important;
 }
-.itemCard-3Etziu span { /* Affects the text saying what they're doing (Dota 2 - 52 mins) */
+
+.itemCard-3Etziu span {
+  /* Affects the text saying what they're doing (Dota 2 - 52 mins) */
   color: var(--text-on-white-background);
 }
 
 /* Top Area */
 
-.chat-2ZfjoI 
-.toolbar-3_r2xA 
-.clickable-ZD7xvu {
+.chat-2ZfjoI .toolbar-3_r2xA .clickable-ZD7xvu {
   background: #000;
   border-radius: 2px;
   border: 2px solid #fff;
@@ -218,16 +222,11 @@ div[aria-roledescription="Message"]::after {
   transform: rotate(4deg);
 }
 
-.chat-2ZfjoI 
-.toolbar-3_r2xA 
-.clickable-ZD7xvu:nth-child(even) {
+.chat-2ZfjoI .toolbar-3_r2xA .clickable-ZD7xvu:nth-child(even) {
   transform: rotate(-4deg);
 }
 
-.chat-2ZfjoI 
-.toolbar-3_r2xA 
-.clickable-ZD7xvu 
-.icon-2xnN2Y {
+.chat-2ZfjoI .toolbar-3_r2xA .clickable-ZD7xvu .icon-2xnN2Y {
   padding: 1px;
   box-sizing: border-box;
   width: 20px;
@@ -235,34 +234,25 @@ div[aria-roledescription="Message"]::after {
   color: #fff;
 }
 
-.chat-2ZfjoI 
-.toolbar-3_r2xA 
-.clickable-ZD7xvu.selected-29KTGM {
+.chat-2ZfjoI .toolbar-3_r2xA .clickable-ZD7xvu.selected-29KTGM {
   background: var(--background-accent);
 }
 
-.chat-2ZfjoI 
-.toolbar-3_r2xA 
-.clickable-ZD7xvu:hover {
+.chat-2ZfjoI .toolbar-3_r2xA .clickable-ZD7xvu:hover {
   background: #fff;
 }
 
-.chat-2ZfjoI 
-.toolbar-3_r2xA 
-.clickable-ZD7xvu:hover 
-.icon-2xnN2Y {
+.chat-2ZfjoI .toolbar-3_r2xA .clickable-ZD7xvu:hover .icon-2xnN2Y {
   color: var(--theme);
 }
 
-.theme-dark 
-.lookFilled-1Gx00P.colorPrimary-3b3xI6 {
+.theme-dark .lookFilled-1Gx00P.colorPrimary-3b3xI6 {
   border-radius: 2px;
   background-color: var(--theme);
   color: #fff;
 }
 
-.theme-dark 
-.lookFilled-1Gx00P.colorPrimary-3b3xI6:hover {
+.theme-dark .lookFilled-1Gx00P.colorPrimary-3b3xI6:hover {
   background: #fff;
   color: var(--theme);
 }
@@ -285,21 +275,18 @@ div[aria-roledescription="Message"]::after {
   background: rgb(12, 12, 12);
 }
 
-.queryContainer-ZunrLZ 
-.queryText-j8z984 strong {
+.queryContainer-ZunrLZ .queryText-j8z984 strong {
   background: #fff;
   color: var(--mp-pink);
   padding: 5px;
 }
 
-.queryContainer-ZunrLZ 
-.keybindShortcut-3zF1P9 span {
+.queryContainer-ZunrLZ .keybindShortcut-3zF1P9 span {
   background: var(--theme);
   color: #fff;
 }
 
-.queryContainer-ZunrLZ 
-.keybindShortcut-3zF1P9:active span {
+.queryContainer-ZunrLZ .keybindShortcut-3zF1P9:active span {
   background: #fff;
   color: var(--theme);
 }
@@ -310,14 +297,11 @@ div[aria-roledescription="Message"]::after {
   background: #000;
 }
 
-.resultsGroup-1BPR25 
-.option-2KkUJO::after {
+.resultsGroup-1BPR25 .option-2KkUJO::after {
   background: linear-gradient(to left, #000 80%, transparent);
 }
 
-.resultsGroup-1BPR25 
-.option-2KkUJO 
-.plusIcon-2V7coV {
+.resultsGroup-1BPR25 .option-2KkUJO .plusIcon-2V7coV {
   color: var(--mp-pink);
 }
 
@@ -325,15 +309,16 @@ div[aria-roledescription="Message"]::after {
 
 /* Mute button */
 button[aria-label="Mute"] {
-  background: var(--mp-pink); /* p5 pink var, conv'd to rgba */
+  background: var(--mp-pink);
+  /* p5 pink var, conv'd to rgba */
 }
 
 button[aria-label="Deafen"] {
-  background: var(--hp-green); 
+  background: var(--hp-green);
 }
 
 button[aria-label="User Settings"] {
-  background: var(--p5-blue); 
+  background: var(--p5-blue);
 }
 
 /* Date */
@@ -351,100 +336,67 @@ button[aria-label="User Settings"] {
   background: #000 !important;
 }
 
-.datePicker-70cO23 
-.calendarPicker-sDhzdi {
+.datePicker-70cO23 .calendarPicker-sDhzdi {
   background: #000 !important;
 }
 
-.datePicker-70cO23 
-.react-datepicker {
+.datePicker-70cO23 .react-datepicker {
   /* background: #000 !important; */
   background: #000 url("https://alanmun.github.io/p5r-discord-theme/calendar.png") center / cover !important;
 }
 
-.datePicker-70cO23 
-.react-datepicker 
-.react-datepicker__header {
+.datePicker-70cO23 .react-datepicker .react-datepicker__header {
   border: none;
   background: none;
 }
 
-.datePicker-70cO23
-.react-datepicker
-.react-datepicker__header
-.react-datepicker__day-name {
+.datePicker-70cO23 .react-datepicker .react-datepicker__header .react-datepicker__day-name {
   background: #000;
   padding: 5px 0;
   color: #fff;
   font-weight: 600;
 }
 
-.datePicker-70cO23
-.react-datepicker
-.react-datepicker__month
-.react-datepicker__day {
+.datePicker-70cO23 .react-datepicker .react-datepicker__month .react-datepicker__day {
   background: #000;
 }
 
-.datePicker-70cO23
-.react-datepicker
-.react-datepicker__month
-.react-datepicker__day:hover {
+.datePicker-70cO23 .react-datepicker .react-datepicker__month .react-datepicker__day:hover {
   background: var(--theme);
   color: #fff;
 }
 
-.datePicker-70cO23
-.react-datepicker
-.react-datepicker__month
-.react-datepicker__day.react-datepicker__day--selected {
-color: #fff;
+.datePicker-70cO23 .react-datepicker .react-datepicker__month .react-datepicker__day.react-datepicker__day--selected {
+  color: #fff;
 }
 
-.datePicker-70cO23
-.react-datepicker
-.react-datepicker__month
-.react-datepicker__day.react-datepicker__day--selected:hover {
+.datePicker-70cO23 .react-datepicker .react-datepicker__month .react-datepicker__day.react-datepicker__day--selected:hover {
   background: var(--p5-blue);
 }
 
-.datePicker-70cO23
-.react-datepicker
-.react-datepicker__month
-.react-datepicker__day.react-datepicker__day--selected::after {
+.datePicker-70cO23 .react-datepicker .react-datepicker__month .react-datepicker__day.react-datepicker__day--selected::after {
   background: var(--p5-blue);
 }
 
-.datePicker-70cO23
-.react-datepicker
-.react-datepicker__month
-.react-datepicker__day
-.react-datepicker__day--selected
-+ .datePicker-70cO23
-.react-datepicker
-.react-datepicker__month
-.react-datepicker__day {
+.datePicker-70cO23 .react-datepicker .react-datepicker__month .react-datepicker__day .react-datepicker__day--selected+.datePicker-70cO23 .react-datepicker .react-datepicker__month .react-datepicker__day {
   color: green;
 }
 
-.searchFilter-2UfsDk 
-span {
+.searchFilter-2UfsDk span {
   color: #fff;
   background: var(--mp-pink);
   padding: 0 2px;
   font-weight: 700;
 }
 
-.searchAnswer-23w-CH 
-span {
+.searchAnswer-23w-CH span {
   color: #fff;
   background: var(--hp-green);
   padding: 0 2px;
   font-weight: 700;
 }
 
-.datePickerHint-17MnA8 
-.hintValue-1x-flY {
+.datePickerHint-17MnA8 .hintValue-1x-flY {
   background: var(--hp-green) !important;
   color: #fff;
   font-weight: 700 !important;
@@ -461,7 +413,7 @@ span {
   transform: skewX(5deg);
 }
 
-.bd-notice:first-child > * {
+.bd-notice:first-child>* {
   color: black;
 }
 
@@ -476,8 +428,10 @@ span {
   transform: skew(3deg);
   color: var(--text-on-red-background);
 }
-.searchBar-jGtisZ:hover { /* TODO: This is too weak because it scales differently than the element I designed pulsate for */
-  animation: pulsate 0.6s infinite;
+
+.searchBar-jGtisZ:hover {
+  --scale-factor: 1.03;
+  animation: erraticStretch 0.9s infinite;
 }
 
 /* "Search" placeholder text in search bar at top right */
@@ -497,16 +451,24 @@ button.searchBarComponent-3N7dCG {
   letter-spacing: 0px;
 }
 
+button.searchBarComponent-3N7dCG:hover {
+  --scale-factor: 1;
+  animation: erraticStretch 0.9s infinite;
+}
+
 /* Targets the real search bar that appears when in friends tab, above the currently online users, probably targets others too */
 .container-2oNtJn {
   border-radius: 0;
-  border: solid white 1.2pt;
   transform: skew(3deg);
 }
+
 .container-2oNtJn:hover {
+  --scale-factor: 1.01;
   animation: pulsate 0.6s infinite;
 }
-input.input-2m5SfJ { /* Text for this bar exists in an input */
+
+input.input-2m5SfJ {
+  /* Text for this bar exists in an input */
   color: var(--text-on-red-background);
 }
 
@@ -523,20 +485,27 @@ input.input-2m5SfJ { /* Text for this bar exists in an input */
   height: 26px;
   width: 19px;
 }
- /* Restyling the number of dms notification number */
-.lowerBadge-3j0ZAg > div {
+
+/* Restyling the number of dms notification number */
+.lowerBadge-3j0ZAg>div {
   padding-top: 14px;
   padding-right: 6px;
   background: transparent !important;
   transform: skewX(0deg) scaleX(-1.3) scaleY(1.3) !important;
   color: rgba(255, 59, 59, 0.9);
   font-family: 'shoplifter';
-  text-shadow: 
-    -1px -1px 0 #000,  
+  text-shadow:
+    -1px -1px 0 #000,
     1px -1px 0 #000,
     -1px 1px 0 #000,
     1px 1px 0 #000;
 }
+
+/* Targeting the Friends tab that appears to the right of "find or start a conversation" */
+section {
+  background: black !important;
+}
+
 /* Restyle only the badges under blobContainers (non-folders), makes their notif sizes equal */
 div.blobContainer-ikKyFs .lowerBadge-3j0ZAg {
   transform: scaleX(-0.75) scaleY(0.75) !important;
@@ -548,7 +517,7 @@ svg.svg-2ifYOU foreignObject {
 }
 
 /* DM popup notification profile pics (when someone dms you) */
-.scroller-3X7KbA.none-1rXy4P.scrollerBase-1Pkza4 svg.svg-2ifYOU mask + mask + foreignObject {
+.scroller-3X7KbA.none-1rXy4P.scrollerBase-1Pkza4 svg.svg-2ifYOU mask+mask+foreignObject {
   mask: none;
 }
 
@@ -560,6 +529,7 @@ div[style="opacity: 1; height: 56px; transform: scale(1);"]:nth-child(even) .lis
   padding: 2px;
   transform: skewX(-2deg) rotate(2deg);
 }
+
 div[style="opacity: 1; height: 56px; transform: scale(1);"]:nth-child(odd) .listItemWrapper-3d87LP {
   border: solid 2px white;
   border-left-width: 4px;
@@ -575,10 +545,11 @@ div[style="opacity: 1; height: 56px; transform: scale(1);"]:nth-child(odd) .list
 }
 
 /* Server list etc */
-div[aria-label="Servers"] > :nth-child(odd) div.blobContainer-ikKyFs:hover {
+div[aria-label="Servers"]> :nth-child(odd) div.blobContainer-ikKyFs:hover {
   animation: jiggleInverted 0.6s infinite;
 }
-div[aria-label="Servers"] > :nth-child(odd) div.blobContainer-ikKyFs {
+
+div[aria-label="Servers"]> :nth-child(odd) div.blobContainer-ikKyFs {
   background: url('https://alanmun.github.io/p5r-discord-theme/spikyCircleMenuButton.svg');
   background-size: 100%;
   background-repeat: no-repeat;
@@ -587,14 +558,17 @@ div[aria-label="Servers"] > :nth-child(odd) div.blobContainer-ikKyFs {
   width: 50px;
   transform: skewX(-4deg) rotate(6deg) scale(-1.4);
 }
-div[aria-label="Servers"] > :nth-child(odd) div.blobContainer-ikKyFs img {
+
+div[aria-label="Servers"]> :nth-child(odd) div.blobContainer-ikKyFs img {
   transform: scale(-0.65);
   border-radius: 50%;
 }
-div[aria-label="Servers"] > :nth-child(even) div.blobContainer-ikKyFs:hover {
+
+div[aria-label="Servers"]> :nth-child(even) div.blobContainer-ikKyFs:hover {
   animation: jiggleNormal 0.6s infinite;
 }
-div[aria-label="Servers"] > :nth-child(even) div.blobContainer-ikKyFs {
+
+div[aria-label="Servers"]> :nth-child(even) div.blobContainer-ikKyFs {
   margin-top: 15px;
   width: 50px;
   transform: skewY(4deg) rotate(-6deg);
@@ -604,40 +578,39 @@ div[aria-label="Servers"] > :nth-child(even) div.blobContainer-ikKyFs {
   background-position: 50% 100%;
   transform: skewX(-4deg) rotate(6deg) scale(1.4);
 }
-div[aria-label="Servers"] > :nth-child(even) div.blobContainer-ikKyFs img {
+
+div[aria-label="Servers"]> :nth-child(even) div.blobContainer-ikKyFs img {
   transform: scale(0.65);
   border-radius: 50%;
 }
 
 /* Affects folders */
-div[aria-label="Servers"] > .wrapper-38slSD div.wrapper-2PSQCG:hover {
+div[aria-label="Servers"]>.wrapper-38slSD div.wrapper-2PSQCG:hover {
   animation: jiggleFolder 0.6s infinite;
 }
-div[aria-label="Servers"] > .wrapper-38slSD div.wrapper-2PSQCG { 
+
+div[aria-label="Servers"]>.wrapper-38slSD div.wrapper-2PSQCG {
   margin-top: 15px;
   /* border: solid 2px white; */
   background: black;
   transform: skewX(4deg) rotate(6deg);
 }
-div[aria-label="Servers"] > .wrapper-38slSD svg.svg-2ifYOU foreignObject {
+
+div[aria-label="Servers"]>.wrapper-38slSD svg.svg-2ifYOU foreignObject {
   mask: none !important;
   background: none;
 }
 
 /* Nuke radius on any server folder */
-div[aria-label="Servers"] > .wrapper-38slSD .folderIconWrapper-1oRIZr { 
+div[aria-label="Servers"]>.wrapper-38slSD .folderIconWrapper-1oRIZr {
   border-radius: 0;
   background-color: transparent !important;
 }
 
 
 /* Direct Messages icon */
-.guilds-2JjMmN 
-.tutorialContainer-1pL9QS 
-.wrapper-3kah-n 
-.childWrapper-1j_1ub {
-  background: rgba(0,0,0,0) url("https://alanmun.github.io/p5r-discord-theme/im.png") no-repeat center /
-    120%;
+.guilds-2JjMmN .tutorialContainer-1pL9QS .wrapper-3kah-n .childWrapper-1j_1ub {
+  background: rgba(0, 0, 0, 0) url("https://alanmun.github.io/p5r-discord-theme/im.png") no-repeat center / 120%;
   /* mask: none !important; */
 }
 
@@ -647,7 +620,7 @@ div[aria-label="Servers"] > .wrapper-38slSD .folderIconWrapper-1oRIZr {
 }
 
 
-div[aria-label="Members"] > h3.membersGroup-2eiWxl:nth-child(even) > span {
+div[aria-label="Members"]>h3.membersGroup-2eiWxl:nth-child(even)>span {
   font-family: var(--header-font-family);
   font-size: 0.80em;
   color: #000;
@@ -660,7 +633,7 @@ div[aria-label="Members"] > h3.membersGroup-2eiWxl:nth-child(even) > span {
   display: inline-block;
 }
 
-div[aria-label="Members"] > h3.membersGroup-2eiWxl:nth-child(odd) > span {
+div[aria-label="Members"]>h3.membersGroup-2eiWxl:nth-child(odd)>span {
   font-family: var(--header-font-family);
   font-size: 0.80em;
   color: #000;
@@ -680,29 +653,19 @@ div[aria-label="Members"] > h3.membersGroup-2eiWxl:nth-child(odd) > span {
   background: var(--p5-primary) !important;
 }
 
-.guilds-2JjMmN
-.tutorialContainer-1pL9QS
-.wrapper-3kah-n
-.childWrapper-1j_1ub
-svg {
+.guilds-2JjMmN .tutorialContainer-1pL9QS .wrapper-3kah-n .childWrapper-1j_1ub svg {
   display: none;
 }
 
-.guilds-2JjMmN
-.tutorialContainer-1pL9QS
-.wrapper-3kah-n.selected-bZ3Lue
-.childWrapper-1j_1ub {
+.guilds-2JjMmN .tutorialContainer-1pL9QS .wrapper-3kah-n.selected-bZ3Lue .childWrapper-1j_1ub {
   color: #fff;
 }
 
-.guilds-2JjMmN 
-.lowerBadge-3WTshO {
+.guilds-2JjMmN .lowerBadge-3WTshO {
   background: var(--theme);
 }
 
-.guilds-2JjMmN 
-.lowerBadge-3WTshO 
-.numberBadge-37OJ3S {
+.guilds-2JjMmN .lowerBadge-3WTshO .numberBadge-37OJ3S {
   background: var(--theme) !important;
   color: #fff;
 }
@@ -719,14 +682,11 @@ svg {
   color: var(--hp-green);
 }
 
-.guilds-2JjMmN 
-.circleIconButton-jET_ig:hover {
+.guilds-2JjMmN .circleIconButton-jET_ig:hover {
   background: var(--mp-pink);
 }
 
-.guilds-2JjMmN 
-.circleIconButton-jET_ig:hover 
-svg {
+.guilds-2JjMmN .circleIconButton-jET_ig:hover svg {
   color: #fff;
 }
 
@@ -738,30 +698,21 @@ svg {
 
 /* Popout Above Guilds */
 
-.menu-3sdvDG 
-.scroller-3BxosC {
+.menu-3sdvDG .scroller-3BxosC {
   background: #000;
   border-radius: 2px;
   border: 2px solid #fff;
 }
 
-.menu-3sdvDG 
-.scroller-3BxosC 
-.item-1tOPte {
+.menu-3sdvDG .scroller-3BxosC .item-1tOPte {
   color: #fff;
 }
 
-.menu-3sdvDG 
-.scroller-3BxosC 
-.item-1tOPte.focused-3afm-j {
+.menu-3sdvDG .scroller-3BxosC .item-1tOPte.focused-3afm-j {
   background: var(--theme);
 }
 
-.menu-3sdvDG
-.scroller-3BxosC
-.item-1tOPte:nth-child(2n + 2)
-.iconContainer-2-XQPY
-  svg {
+.menu-3sdvDG .scroller-3BxosC .item-1tOPte:nth-child(2n + 2) .iconContainer-2-XQPY svg {
   color: var(--theme) !important;
 }
 
@@ -776,11 +727,11 @@ svg {
 }
 
 .interactive-1vLZ_I:hover {
-  background: rgba(10,10,10,0.5);
+  background: rgba(10, 10, 10, 0.5);
 }
 
 .interactive-1vLZ_I.interactiveSelected-29CP8y.selected-3veCBZ {
-  background: rgba(10,10,10,0.5);
+  background: rgba(10, 10, 10, 0.5);
 }
 
 .peopleColumn-1wMU14 {
@@ -810,13 +761,10 @@ svg {
 }
 
 .peopleList-2VBrVI .peopleListItem-u6dGxF:hover {
-  background: rgba(10,10,10,0.8);
+  background: rgba(10, 10, 10, 0.8);
 }
 
-.peopleList-2VBrVI
-  .peopleListItem-u6dGxF
-  .actions-1SQwjn
-  .actionButton-uPB8Fs:nth-child(even) {
+.peopleList-2VBrVI .peopleListItem-u6dGxF .actions-1SQwjn .actionButton-uPB8Fs:nth-child(even) {
   color: var(--theme);
 }
 
@@ -876,30 +824,31 @@ svg {
 li:nth-child(odd) .message-2CShn3 {
   margin-left: 2%;
 }
+
 li:nth-child(odd) .message-2CShn3 .avatar-2e8lTP {
   /* left: -2%; */
   border-radius: 0;
 
-  /* box-shadow: 0px 0px 10px 5px red inset;
-  border: 3px solid white;
-  border-bottom-width: 4px;
-  border-top-width: 0px; */
-  
+  border: 2px solid #fff;
   z-index: 1;
-  overflow: visible; /* This was set by original author, but seemingly no effect */
+  overflow: visible;
+  /* This was set by original author, but seemingly no effect */
   transform: rotate(-2deg) skew(3deg);
 }
-  /* ^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_ */
+
+/* ^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_^_ */
 li:nth-child(even) .message-2CShn3 {
   margin-left: 2%;
 }
+
 li:nth-child(even) .message-2CShn3 .avatar-2e8lTP {
   /* left: -2%; */
   border-radius: 0;
 
   border: 2px solid #fff;
   transform: rotate(2deg) skew(-3deg);
-  overflow: visible; /* This was set by original author, but seemingly no effect */
+  overflow: visible;
+  /* This was set by original author, but seemingly no effect */
 }
 
 .message-2CShn3 .markup-eYLPri {
@@ -912,11 +861,11 @@ li:nth-child(even) .message-2CShn3 .avatar-2e8lTP {
   color: #000;
 }
 
-.contents-2MsGLg .markup-eYLPri > span {
+.contents-2MsGLg .markup-eYLPri>span {
   color: #fff;
 }
 
-.contents-2MsGLg .markup-eYLPri > span > span.highlight {
+.contents-2MsGLg .markup-eYLPri>span>span.highlight {
   background: var(--p5-primary);
   color: #fff;
 }
@@ -971,7 +920,7 @@ li:nth-child(even) .message-2CShn3 .avatar-2e8lTP {
 }
 
 /* Overrides first class with more specificity so we don't apply font to every username */
-.name-2m3Cms > .overflow-1wOqNV {
+.name-2m3Cms>.overflow-1wOqNV {
   font-family: 'Varela Round';
   font-size: initial;
   line-height: 120%;
@@ -992,7 +941,7 @@ h2.privateChannelsHeaderContainer-1UWASm {
 }
 
 /* The actual span inside of the above DM header */
-h2.privateChannelsHeaderContainer-1UWASm > span {
+h2.privateChannelsHeaderContainer-1UWASm>span {
   font-family: "fanransom";
   font-size: 1.2em;
   font-weight: lighter;
@@ -1004,6 +953,38 @@ h2.privateChannelsHeaderContainer-1UWASm > span {
   transform: skew(12deg);
   /* border: rgb(200, 200, 200) 0.5px; 
   border-style: solid; */
+}
+
+/* Restyling friends list, underneath DM header */
+ul[aria-label="Direct Messages"]>h2~li.channel-1Shao0.container-32HW5s:nth-child(odd) {
+  border-radius: 0;
+  border: solid transparent;
+  border-top-width: 0.5px;
+  border-right-width: 0.5px;
+  border-bottom-width: 1px;
+  border-left-width: 2px;
+  margin-right: 7px;
+  transform: skewX(9deg);
+}
+
+ul[aria-label="Direct Messages"]>h2~li.channel-1Shao0.container-32HW5s:nth-child(odd) a {
+  transform: skewX(-9deg);
+}
+
+ul[aria-label="Direct Messages"]>h2~li.channel-1Shao0.container-32HW5s:nth-child(even) {
+  border-radius: 0;
+  border: solid transparent;
+  border-top-width: 1.5px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  margin-left: 12px;
+  margin-right: 4px;
+  transform: skewX(-6deg);
+}
+
+ul[aria-label="Direct Messages"]>h2~li.channel-1Shao0.container-32HW5s:nth-child(even) a {
+  transform: skewX(6deg);
 }
 
 /* Date dividers */
@@ -1059,7 +1040,8 @@ h2.privateChannelsHeaderContainer-1UWASm > span {
 
 /* Holds the buttons inside of the chat box and placeholder text */
 .scrollableContainer-15eg7h .inner-NQg18Y {
-  transform: skewX(4deg); /* This counter-skew unskews the above skew for chat box buttons, which was done for the overall chat box */
+  transform: skewX(4deg);
+  /* This counter-skew unskews the above skew for chat box buttons, which was done for the overall chat box */
 }
 
 /* Affects any text user has written into the chat box */
@@ -1096,16 +1078,19 @@ path.attachButtonPlus-3IYelE:hover {
   fill: var(--background-primary) !important;
 }
 
-/* Buttons inside of and to the right in the message edit box */ 
+/* Buttons inside of and to the right in the message edit box */
 .buttons-uaqb-5 button[aria-label="Send a gift"] svg {
   color: var(--mp-pink);
 }
+
 .buttons-uaqb-5 button[aria-label="Open GIF picker"] svg {
   color: var(--hp-green);
 }
+
 .buttons-uaqb-5 button[aria-label="Open sticker picker"] svg {
   color: var(--p5-blue);
 }
+
 .buttons-uaqb-5 button[aria-label="Select emoji"] div.sprite-2lxwfc {
   filter: unset !important;
 }
@@ -1148,26 +1133,15 @@ path.attachButtonPlus-3IYelE:hover {
   background: var(--background-secondary);
 }
 
-.channelTextArea-1VQBuV
-  .autocomplete-3NRXG8
-  .autocompleteInner-y1mjDl
-  .categorySection-3hl0bM
-  .wrapper-1NNaWG {
+.channelTextArea-1VQBuV .autocomplete-3NRXG8 .autocompleteInner-y1mjDl .categorySection-3hl0bM .wrapper-1NNaWG {
   background: none;
 }
 
-.channelTextArea-1VQBuV
-  .autocomplete-3NRXG8
-  .autocompleteInner-y1mjDl
-  .infoWrapper-33i2RS
-  .colorInteractiveActive-30E9n8 {
+.channelTextArea-1VQBuV .autocomplete-3NRXG8 .autocompleteInner-y1mjDl .infoWrapper-33i2RS .colorInteractiveActive-30E9n8 {
   color: #fff;
 }
 
-.channelTextArea-1VQBuV
-  .autocomplete-3NRXG8
-  .autocompleteInner-y1mjDl
-  .selected-3H3-RC {
+.channelTextArea-1VQBuV .autocomplete-3NRXG8 .autocompleteInner-y1mjDl .selected-3H3-RC {
   background: var(--theme) !important;
 }
 
@@ -1181,8 +1155,7 @@ path.attachButtonPlus-3IYelE:hover {
 
 .newMessagesBar-265mhP {
   border-radius: 2px;
-  background: #101010 url("https://alanmun.github.io/p5r-discord-theme/notification.gif")
-    no-repeat;
+  background: #101010 url("https://alanmun.github.io/p5r-discord-theme/notification.gif") no-repeat;
   background-position-y: 3px;
   background-position-x: 10px;
   background-size: 20px;
@@ -1306,7 +1279,7 @@ path.attachButtonPlus-3IYelE:hover {
 }
 
 /* Some text appears black when it shouldn't be. If you still see issues, delete first two class? */
-.defaultColor-1EVLSt.lineClamp2Plus-2SCQmH.text-sm-normal-AEQz4v span{
+.defaultColor-1EVLSt.lineClamp2Plus-2SCQmH.text-sm-normal-AEQz4v span {
   color: ghostwhite;
 }
 
@@ -1321,7 +1294,7 @@ path.attachButtonPlus-3IYelE:hover {
   background-image: url("https://alanmun.github.io/p5r-discord-theme/p5star.gif");
   background-position: center 100%;
   background-repeat: no-repeat;
-  background-color: rgba(0,0,0,0)
+  background-color: rgba(0, 0, 0, 0)
 }
 
 /* User Popout */
@@ -1330,10 +1303,11 @@ path.attachButtonPlus-3IYelE:hover {
   background-image: url("https://alanmun.github.io/p5r-discord-theme/p5star.gif");
   background-position: center center;
   background-repeat: no-repeat;
-  background-color: rgba(0,0,0,0)
+  background-color: rgba(0, 0, 0, 0)
 }
 
-.userProfileOuterThemed-2BgJCM.userPopoutOuter-1OHwPL, .userProfileOuterThemed-2BgJCM.userProfileOuter-2tQwNf {
+.userProfileOuterThemed-2BgJCM.userPopoutOuter-1OHwPL,
+.userProfileOuterThemed-2BgJCM.userProfileOuter-2tQwNf {
   padding: 0px;
 }
 
@@ -1469,8 +1443,8 @@ path.attachButtonPlus-3IYelE:hover {
   background: rgba(10, 10, 10, 0.8);
 }
 
-.focusLock-Ns3yie .item-26Dhrx .radioBar-bMNUI- > svg path,
-.focusLock-Ns3yie .item-26Dhrx .radioBar-bMNUI- > svg circle {
+.focusLock-Ns3yie .item-26Dhrx .radioBar-bMNUI->svg path,
+.focusLock-Ns3yie .item-26Dhrx .radioBar-bMNUI->svg circle {
   fill: var(--theme);
 }
 
@@ -1569,11 +1543,7 @@ input.input-3O04eu {
   margin: 10px 0;
 }
 
-.theme-dark
-  .uploadModal-2ifh8j
-  .inner-3nWsbo
-  .channelTextAreaUpload-3t7EIx
-  .scrollableContainer-2NUZem {
+.theme-dark .uploadModal-2ifh8j .inner-3nWsbo .channelTextAreaUpload-3t7EIx .scrollableContainer-2NUZem {
   background: #fff;
   border-radius: 2px;
   box-shadow: 0 0 0 2px var(--theme);
@@ -1592,21 +1562,11 @@ input.input-3O04eu {
   box-shadow: 0 0 0 2px var(--theme);
 }
 
-.theme-dark
-  .uploadModal-2ifh8j
-  .footer-3mqk7D
-  .inputDefault-3JxKJ2:checked
-  + .checkbox-1ix_J3 {
+.theme-dark .uploadModal-2ifh8j .footer-3mqk7D .inputDefault-3JxKJ2:checked+.checkbox-1ix_J3 {
   border-color: var(--mp-pink) !important;
 }
 
-.theme-dark
-  .uploadModal-2ifh8j
-  .footer-3mqk7D
-  .inputDefault-3JxKJ2:checked
-  + .checkbox-1ix_J3
-  svg
-  path {
+.theme-dark .uploadModal-2ifh8j .footer-3mqk7D .inputDefault-3JxKJ2:checked+.checkbox-1ix_J3 svg path {
   fill: var(--mp-pink) !important;
 }
 
@@ -1616,10 +1576,7 @@ input.input-3O04eu {
   box-shadow: 0 0 0 2px #fff;
 }
 
-.theme-dark
-  .uploadModal-2ifh8j
-  .footer-3mqk7D
-  .button-38aScr[type="submit"]:hover {
+.theme-dark .uploadModal-2ifh8j .footer-3mqk7D .button-38aScr[type="submit"]:hover {
   background: var(--theme);
   color: #fff;
 }
@@ -1661,45 +1618,70 @@ input.input-3O04eu {
 
 /* TODO: animation that stretches corners of an element erratically like in p5 */
 @keyframes erraticStretch {
-  0%, 100% {
-    transform: scaleX(1) scaleY(1) skew(3deg);
+
+  0%,
+  100% {
+    transform: scaleX(1) scaleY(1.05) skew(calc(var(--scale-factor) * 3deg));
   }
+
+  25% {
+    transform: scaleX(1.03) scaleY(1) skewX(calc(var(--scale-factor) * 9deg)) skewY(calc(var(--scale-factor) * -0.5deg));
+  }
+
   50% {
-    transform: scaleX(1.003) scaleY(1.01) skew(3deg);
+    transform: scaleX(0.99) scaleY(1.05) skewX(calc(var(--scale-factor) * 9deg));
+  }
+
+  75% {
+    transform: scaleX(1.0) scaleY(1.1) skewX(calc(var(--scale-factor) * 3deg)) skewY(calc(var(--scale-factor) -0.5deg));
   }
 }
 
 /* Zooms in and out a tiny bit */
 @keyframes pulsate {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scaleX(1) scaleY(1) skew(3deg);
   }
+
   50% {
-    transform: scaleX(1.003) scaleY(1.01) skew(3deg);
+    transform: scaleX(calc(var(--scale-factor) * 1.003)) scaleY(calc(var(--scale-factor) * 1.01)) skew(3deg);
   }
 }
 
 /* Normal and inverted jiggle, depending on odd or even server */
 @keyframes jiggleNormal {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: rotate(3deg) scale(1.4);
   }
+
   50% {
     transform: rotate(-3deg) scale(1.4);
   }
 }
+
 @keyframes jiggleInverted {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: rotate(3deg) scale(-1.4);
   }
+
   50% {
     transform: rotate(-3deg) scale(-1.4);
   }
 }
+
 @keyframes jiggleFolder {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: rotate(-3deg) scale(1);
   }
+
   50% {
     transform: rotate(3deg) scale(1);
   }
