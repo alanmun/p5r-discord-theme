@@ -1,5 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
-/* Import Varela Font */
+
+/* Import Varela Round Font */
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"); 
+
 
 /* Closest to ransom note font I could find. It doesn't support special characters though, ffs */
 @font-face {
@@ -68,8 +70,8 @@
   --text-link: var(--p5-blue);
   --text-muted: #fff;
   --text-on-white-background: #000;
-  --text-normal: var(--text-on-white-background);
-  --text-on-red-background: #fff;
+  --text-normal: var(--text-on-dark-background);
+  --text-on-dark-background: #fff;
 
   /* Focus */
   -focus-primary: #fff;
@@ -196,20 +198,21 @@ div[aria-roledescription="Message"]::after {
 /* Active Now right column section in Friends tab */
 .itemCard-3Etziu {
   border-radius: 0;
-  background: #fff;
+  border: 0;
+  background: var(--p5-system);
 }
 
 .itemCard-3Etziu:hover {
-  background: rgb(240, 240, 240) !important;
+  background: rgba(33, 33, 33, 0.866) !important; /* This is just p5-system but toned down, can't modify off existing rgbas in css unfortunately */
 }
 
 .itemCard-3Etziu.active-1W_Gl9 {
-  background: rgb(220, 220, 220) !important;
+  background: rgba(28, 28, 28, 0.75) !important;
 }
 
 .itemCard-3Etziu span {
   /* Affects the text saying what they're doing (Dota 2 - 52 mins) */
-  color: var(--text-on-white-background);
+  color: var(--text-on-dark-background);
 }
 
 /* Top Area */
@@ -263,7 +266,7 @@ div[aria-roledescription="Message"]::after {
   background: rgb(12, 12, 12);
   box-shadow: 0 0 0 2px #fff;
   border-radius: 2px;
-  color: var(--text-on-red-background);
+  color: var(--text-on-dark-background);
 }
 
 .queryContainer-ZunrLZ {
@@ -426,7 +429,7 @@ button[aria-label="User Settings"] {
   border-radius: 0px;
   height: 29px;
   transform: skew(3deg);
-  color: var(--text-on-red-background);
+  color: var(--text-on-dark-background);
 }
 
 .searchBar-jGtisZ:hover {
@@ -469,7 +472,7 @@ button.searchBarComponent-3N7dCG:hover {
 
 input.input-2m5SfJ {
   /* Text for this bar exists in an input */
-  color: var(--text-on-red-background);
+  color: var(--text-on-dark-background);
 }
 
 /* add notification icon when someone dms you */
@@ -1024,7 +1027,10 @@ ul[aria-label="Direct Messages"]>h2~li.channel-1Shao0.container-32HW5s:nth-child
 
 /* TODO: chat box glitches out when massive amount of text dumped */
 
-
+/* "Blah is typing... */
+.typing-2J1mQU.base-3bcbY3 {
+  color: var(--text-on-dark-background);
+}
 
 /* chat box */
 .scrollableContainer-15eg7h {
@@ -1479,6 +1485,7 @@ path.attachButtonPlus-3IYelE:hover {
 /* Input text boxes (for example the boxes that appear when editing user profile for display name and pronouns) */
 input.input-3O04eu {
   border-radius: 0;
+  color: var(--text-on-white-background);
 }
 
 /* Voice */
