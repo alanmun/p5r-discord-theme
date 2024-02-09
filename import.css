@@ -27,10 +27,11 @@
 }
 
 :root {
-  --theme: var(--p5-primary);
+  --theme: var(--p5-primary-fix);
 
   /* New Main Color */
   --p5-primary: radial-gradient(circle, #c31e1e, #af0000);
+  --p5-primary-fix: #af0000; /* I came back to find p5-primary broken? radial-gradient specifically just seems to not function anymore. */
   --p5-primary-accent: rgba(220, 20, 60, 0.9);
   /* its crimson with alpha */
   --hp-green: rgba(0, 221, 178, 0.90);
@@ -70,7 +71,10 @@
   --text-link: var(--p5-blue);
   --text-muted: #fff;
   --text-on-white-background: #000;
-  --text-normal: var(--text-on-dark-background);
+  
+  /* Below was a cool idea but it leads to too many misfires and additional CSS I need to write to correct a lot of things */
+  /* Its just not worth it to rename existing vars, it breaks too many things even if it appears to fix a lot */
+  /* --text-normal: var(--text-on-dark-background); */
   --text-on-dark-background: #fff;
 
   /* Focus */
@@ -86,7 +90,7 @@ body {
 }
 
 /* Applies a background to the chat window. I use ::before to control opacity separately (only on background image) */
-main.chatContent-3KubbW::before {
+main[class^="chatContent-"]::before {
   content: "";
   position: absolute;
   top: 0;
@@ -101,7 +105,7 @@ main.chatContent-3KubbW::before {
 }
 
 /* the top bar containing min/max/X out */
-.typeWindows-2-g3UY {
+[class^="typeWindows"] {
   height: 24px;
 }
 
@@ -124,7 +128,7 @@ div[aria-label="Close"] {
 }
 
 /* Discord logo */
-.wordmarkWindows-2dq6rw.wordmark-2u86JB {
+[class^="wordmarkWindows"][class^="wordmark"] {
   background: url("https://alanmun.github.io/p5r-discord-theme/discord-inverted-high-quality-transparent.png");
   background-size: 100% 90%;
   background-repeat: no-repeat;
@@ -135,7 +139,7 @@ div[aria-label="Close"] {
 }
 
 /* Old discord logo hidden */
-.wordmarkWindows-2dq6rw.wordmark-2u86JB>svg {
+[class^="wordmarkWindows"][class^="wordmark"]>svg {
   visibility: hidden;
 }
 
@@ -196,28 +200,28 @@ div[aria-roledescription="Message"]::after {
 } */
 
 /* Active Now right column section in Friends tab */
-.itemCard-3Etziu {
+[class*="itemCard"] {
   border-radius: 0;
   border: 0;
   background: var(--p5-system);
 }
 
-.itemCard-3Etziu:hover {
+[class*="itemCard"]:hover {
   background: rgba(33, 33, 33, 0.866) !important; /* This is just p5-system but toned down, can't modify off existing rgbas in css unfortunately */
 }
 
-.itemCard-3Etziu.active-1W_Gl9 {
+[class*="itemCard"][class*="active-"] {
   background: rgba(28, 28, 28, 0.75) !important;
 }
 
-.itemCard-3Etziu span {
+[class*="itemCard"] span {
   /* Affects the text saying what they're doing (Dota 2 - 52 mins) */
   color: var(--text-on-dark-background);
 }
 
 /* Top Area */
 
-.chat-2ZfjoI .toolbar-3_r2xA .clickable-ZD7xvu {
+[class*="chat"] [class*="toolbar"] [class*="clickable"] {
   background: #000;
   border-radius: 2px;
   border: 2px solid #fff;
@@ -225,11 +229,11 @@ div[aria-roledescription="Message"]::after {
   transform: rotate(4deg);
 }
 
-.chat-2ZfjoI .toolbar-3_r2xA .clickable-ZD7xvu:nth-child(even) {
+[class*="chat"] [class*="toolbar"] [class*="clickable"]:nth-child(even) {
   transform: rotate(-4deg);
 }
 
-.chat-2ZfjoI .toolbar-3_r2xA .clickable-ZD7xvu .icon-2xnN2Y {
+[class*="chat"] [class*="toolbar"] [class*="clickable"] [class*="icon"] {
   padding: 1px;
   box-sizing: border-box;
   width: 20px;
@@ -237,39 +241,36 @@ div[aria-roledescription="Message"]::after {
   color: #fff;
 }
 
-.chat-2ZfjoI .toolbar-3_r2xA .clickable-ZD7xvu.selected-29KTGM {
+/* Hide this svg that creates an ugly red line near bottom of Inbox toolbar button */
+[class*="chat"] [class*="toolbar"] div[aria-label="Inbox"] span[class*="iconBadge"] {
+  visibility: hidden;
+}
+
+[class*="chat"] [class*="toolbar"] [class*="clickable"][class*="selected"] {
   background: var(--background-accent);
 }
 
-.chat-2ZfjoI .toolbar-3_r2xA .clickable-ZD7xvu:hover {
+[class*="chat"] [class*="toolbar"] [class*="clickable"]:hover {
   background: #fff;
 }
 
-.chat-2ZfjoI .toolbar-3_r2xA .clickable-ZD7xvu:hover .icon-2xnN2Y {
-  color: var(--theme);
+[class*="chat"] [class*="toolbar"] [class*="clickable"]:hover [class*="icon"] {
+  color: var(--p5-system);
 }
 
-.theme-dark .lookFilled-1Gx00P.colorPrimary-3b3xI6 {
+.theme-dark [class*="lookFilled"][class*="colorPrimary"] {
   border-radius: 2px;
   background-color: var(--theme);
   color: #fff;
 }
 
-.theme-dark .lookFilled-1Gx00P.colorPrimary-3b3xI6:hover {
+.theme-dark [class*="lookFilled"][class*="colorPrimary"]:hover {
   background: #fff;
   color: var(--theme);
 }
 
-/* Search & Filter */
-
-.searchBar-zdmu7v {
-  background: rgb(12, 12, 12);
-  box-shadow: 0 0 0 2px #fff;
-  border-radius: 2px;
-  color: var(--text-on-dark-background);
-}
-
-.queryContainer-ZunrLZ {
+/* BEGIN Can't tell what these guys are doing... their name seems completely diff now*/
+[class*="queryContainer"] {
   background: #000;
   color: #fff;
 }
@@ -293,6 +294,7 @@ div[aria-roledescription="Message"]::after {
   background: #fff;
   color: var(--theme);
 }
+/* END */
 
 .resultsGroup-1BPR25 {
   border-radius: 2px;
@@ -424,15 +426,20 @@ button[aria-label="User Settings"] {
   transform: rotate(-10deg) skewY(10deg)
 }
 
-/* Search bar at top right, near min/max/Xout */
-.searchBar-jGtisZ {
+/* Remove corner radius for corner just under Discord logo at top left */
+div[class*="base"] div[class*="sidebar"] {
   border-radius: 0px;
-  height: 29px;
+}
+
+/* Search bar at top right, near min/max/Xout */
+[class*="toolbar"] div[class*="searchBar"] {
+  border-radius: 0px;
+  height: 27px;
   transform: skew(3deg);
   color: var(--text-on-dark-background);
 }
 
-.searchBar-jGtisZ:hover {
+[class*="toolbar"] div[class*="searchBar"]:hover {
   --scale-factor: 1.03;
   animation: erraticStretch 0.9s infinite;
 }
@@ -446,7 +453,7 @@ button[aria-label="User Settings"] {
 }
 
 /* Search bar above friends list in DMs */
-button.searchBarComponent-3N7dCG {
+button[class*="searchBarComponent"] {
   border-radius: 0 !important;
   transform: rotate(0deg) skewX(-6deg);
   font-family: 'shoplifter';
@@ -454,48 +461,59 @@ button.searchBarComponent-3N7dCG {
   letter-spacing: 0px;
 }
 
-button.searchBarComponent-3N7dCG:hover {
+button[class*="searchBarComponent"]:hover {
   --scale-factor: 1;
   animation: erraticStretch 0.9s infinite;
 }
 
+/* The popup when you click on the above search bar */
+[class*="quickswitcher"] {
+  border-radius: 0px;
+  --rot-factor: 35;
+  --scale-factor: 1;
+  animation: jiggleNormalWithRotation 0.6s infinite;
+}
+input[aria-label="Quick switcher"] {
+  color: var(--text-on-white-background);
+}
+
 /* Targets the real search bar that appears when in friends tab, above the currently online users, probably targets others too */
-.container-2oNtJn {
+[class*="container"][class*="searchBar"] {
   border-radius: 0;
   transform: skew(3deg);
 }
 
-.container-2oNtJn:hover {
-  --scale-factor: 1.01;
+[class*="container"][class*="searchBar"]:hover {
+  --scale-factor: 1.006;
   animation: pulsate 0.6s infinite;
 }
 
-input.input-2m5SfJ {
+input[aria-label="Search"] {
   /* Text for this bar exists in an input */
   color: var(--text-on-dark-background);
 }
 
 /* add notification icon when someone dms you */
-.lowerBadge-3j0ZAg {
+[class*="lowerBadge"] {
   background: url(https://alanmun.github.io/p5r-discord-theme/notification.gif);
   filter: drop-shadow(0 0 0.5px black);
   background-size: contain;
   background-repeat: no-repeat;
   background-color: transparent;
-  transform: skewX(0deg) scaleX(-1) !important;
+  transform: scaleX(-1) !important;
   margin-bottom: -5px;
   border-radius: 0;
-  height: 26px;
-  width: 19px;
+  height: 25px;
+  width: 9px;
 }
 
 /* Restyling the number of dms notification number */
-.lowerBadge-3j0ZAg>div {
+[class*="lowerBadge"]>div {
   padding-top: 14px;
   padding-right: 6px;
   background: transparent !important;
-  transform: skewX(0deg) scaleX(-1.3) scaleY(1.3) !important;
-  color: rgba(255, 59, 59, 0.9);
+  transform: skewX(0deg) scaleX(-1.3) scaleY(1.3);
+  color: var(--text-on-dark-background);
   font-family: 'shoplifter';
   text-shadow:
     -1px -1px 0 #000,
@@ -510,9 +528,10 @@ section {
 }
 
 /* Restyle only the badges under blobContainers (non-folders), makes their notif sizes equal */
-div.blobContainer-ikKyFs .lowerBadge-3j0ZAg {
+/* Currently not helpful */
+/* div[class*="blobContainer"] [class*="lowerBadge"] {
   transform: scaleX(-0.75) scaleY(0.75) !important;
-}
+} */
 
 /* Direct Messages icon disable masking to remove rounded corners */
 svg.svg-2ifYOU foreignObject {
@@ -524,90 +543,86 @@ svg.svg-2ifYOU foreignObject {
   mask: none;
 }
 
-div[style="opacity: 1; height: 56px; transform: scale(1);"]:nth-child(even) .listItemWrapper-3d87LP {
-  border: solid 2px white;
-  border-left-width: 4px;
-  border-bottom-width: 1px;
-  background: black;
-  padding: 2px;
-  transform: skewX(-2deg) rotate(2deg);
-}
-
-div[style="opacity: 1; height: 56px; transform: scale(1);"]:nth-child(odd) .listItemWrapper-3d87LP {
-  border: solid 2px white;
-  border-left-width: 4px;
-  border-bottom-width: 1px;
-  background: black;
-  padding: 2px;
-  transform: skewY(-3deg) rotate(2deg);
+/* Testing: remove ugly bg from notification popup ticker */
+div[class*="wrapper"] > svg > defs > rect {
+  visibility: hidden;
 }
 
 /* Dunno what this things deal is, its some strange box shadow looking edge near the chatbox. This rule blocks it from appearing, its ugly and looks like a glitch */
-.theme-dark .form-3gdLxP:before {
+.theme-dark [class*="form"]:before {
   background: none !important;
 }
 
 /* Server list etc */
-div[aria-label="Servers"]> :nth-child(odd) div.blobContainer-ikKyFs:hover {
+div[aria-label="Servers"]> :nth-child(odd) div[class*="blobContainer"] > div > svg:hover {
   animation: jiggleInverted 0.6s infinite;
 }
-
-div[aria-label="Servers"]> :nth-child(odd) div.blobContainer-ikKyFs {
+div[aria-label="Servers"]> :nth-child(odd) div[class*="blobContainer"] > div > svg {
   background: url('https://alanmun.github.io/p5r-discord-theme/spikyCircleMenuButton.svg');
-  background-size: 100%;
+  background-size: 97%;
   background-repeat: no-repeat;
   background-position: 50% 100%;
-  margin-top: 15px;
   width: 50px;
-  transform: skewX(-4deg) rotate(6deg) scale(-1.4);
+  transform: rotate(6deg) scale(-1.2);
+}
+div[aria-label="Servers"]> :nth-child(odd) div[class*="blobContainer"] img {
+  transform: scale(-0.7);
+  border-radius: 100%;
 }
 
-div[aria-label="Servers"]> :nth-child(odd) div.blobContainer-ikKyFs img {
-  transform: scale(-0.65);
-  border-radius: 50%;
-}
-
-div[aria-label="Servers"]> :nth-child(even) div.blobContainer-ikKyFs:hover {
+div[aria-label="Servers"]> :nth-child(even) div[class*="blobContainer"] > div > svg:hover {
+  --scale-factor: 1;
   animation: jiggleNormal 0.6s infinite;
 }
 
-div[aria-label="Servers"]> :nth-child(even) div.blobContainer-ikKyFs {
-  margin-top: 15px;
+div[aria-label="Servers"]> :nth-child(even) div[class*="blobContainer"] > div > svg {
+  margin-top: 3px;
   width: 50px;
-  transform: skewY(4deg) rotate(-6deg);
   background: url('https://alanmun.github.io/p5r-discord-theme/spikyCircleMenuButton.svg');
-  background-size: 100%;
+  background-size: 97%;
   background-repeat: no-repeat;
   background-position: 50% 100%;
-  transform: skewX(-4deg) rotate(6deg) scale(1.4);
+  transform: rotate(6deg) scale(1.2);
 }
 
-div[aria-label="Servers"]> :nth-child(even) div.blobContainer-ikKyFs img {
-  transform: scale(0.65);
-  border-radius: 50%;
+div[aria-label="Servers"]> :nth-child(even) div[class*="blobContainer"] img {
+  transform: scale(0.7);
+  border-radius: 100%;
 }
 
 /* Affects folders */
-div[aria-label="Servers"]>.wrapper-38slSD div.wrapper-2PSQCG:hover {
+div[aria-label="Servers"]>[class*="wrapper"] div[class*="wrapper"]:hover {
   animation: jiggleFolder 0.6s infinite;
 }
-
-div[aria-label="Servers"]>.wrapper-38slSD div.wrapper-2PSQCG {
+div[aria-label="Servers"]>[class*="wrapper"] div[class*="wrapper"] {
   margin-top: 15px;
-  /* border: solid 2px white; */
-  background: black;
   transform: skewX(4deg) rotate(6deg);
 }
 
-div[aria-label="Servers"]>.wrapper-38slSD svg.svg-2ifYOU foreignObject {
+/* ul that contains each server in a folder */
+div[aria-label="Servers"]>[class*="wrapper"] ul {
+  height: auto !important;
+}
+
+/* Matches servers INSIDE folders */
+div[aria-label="Servers"]>[class*="wrapper"] ul div[class*="wrapper"] {
+  margin-top: 0px;
+  transform: scale(1.05) rotate(6deg);
+}
+
+div[aria-label="Servers"]>[class*="wrapper"] svg foreignObject {
   mask: none !important;
   background: none;
 }
 
 /* Nuke radius on any server folder */
-div[aria-label="Servers"]>.wrapper-38slSD .folderIconWrapper-1oRIZr {
+div[aria-label="Servers"]>[class*="wrapper"] [class*="folderIconWrapper"] {
   border-radius: 0;
   background-color: transparent !important;
+}
+
+div[aria-label="Servers"]>[class*="wrapper"] div[aria-expanded="true"] {
+  background: transparent;
 }
 
 
@@ -618,12 +633,15 @@ div[aria-label="Servers"]>.wrapper-38slSD .folderIconWrapper-1oRIZr {
 }
 
 /* DM people list */
-.interactive-26HRN_ {
+[class*="interactive"] {
   border-radius: 0px;
 }
 
+div[class*="members"] > div {
+  color: var(--text-on-dark-background);
+}
 
-div[aria-label="Members"]>h3.membersGroup-2eiWxl:nth-child(even)>span {
+div[aria-label="Members"]>h2[class*="membersGroup"]:nth-child(even)>span {
   font-family: var(--header-font-family);
   font-size: 0.80em;
   color: #000;
@@ -751,7 +769,7 @@ div[aria-label="Members"]>h3.membersGroup-2eiWxl:nth-child(odd)>span {
   transform: rotate(4deg);
 }
 
-.peopleList-2VBrVI .peopleListItem-u6dGxF .avatar-2e8lTP svg foreignObject {
+[class*="peopleList"] [class*="peopleListItem"] [class*="avatar"] svg foreignObject {
   mask: url("https://alanmun.github.io/p5r-discord-theme/im.png");
 }
 
@@ -1025,79 +1043,79 @@ ul[aria-label="Direct Messages"]>h2~li.channel-1Shao0.container-32HW5s:nth-child
 
 /* User Message Area */
 
-/* TODO: chat box glitches out when massive amount of text dumped */
+/* TODO: chatbox glitches out when massive amount of text dumped */
 
 /* "Blah is typing... */
-.typing-2J1mQU.base-3bcbY3 {
+[class*="typing"][class*="base"] {
   color: var(--text-on-dark-background);
 }
 
-/* chat box */
-.scrollableContainer-15eg7h {
+/* chatbox */
+[class*=".scrollableContainer-"] {
   overflow-y: hidden;
   padding-right: 8px;
   border-radius: 0;
 }
 
-/* Seems to be a black element behind the chat box, which should have the skew instead of chat box */
-.channelTextArea-1VQBuV {
+/* Seems to be a black element behind the chatbox, which should have the skew instead of chatbox */
+[class*="channelTextArea"] {
   transform: skewX(-4deg);
 }
 
-/* Holds the buttons inside of the chat box and placeholder text */
-.scrollableContainer-15eg7h .inner-NQg18Y {
+/* Holds the buttons inside of the chatbox and placeholder text */
+[class*="scrollableContainer"] [class*="inner"] {
   transform: skewX(4deg);
-  /* This counter-skew unskews the above skew for chat box buttons, which was done for the overall chat box */
+  /* This counter-skew unskews the above skew for chatbox buttons, which was done for the overall chatbox */
 }
 
-/* Affects any text user has written into the chat box */
-.scrollableContainer-15eg7h .inner-NQg18Y .markup-eYLPri span {
+/* Affects any text user has written into the chatbox */
+[class*="scrollableContainer"] [class*="inner"] [class*="markup"] span {
   font-size: 0.96em;
   font-family: "Varela Round", "gg sans";
   color: #000;
 }
 
 /* These two affect just inline code formatted text using `backticks` */
-.markup-eYLPri span:is(.before_inlineCode-1zngJj, .inlineCode-ERyvy_, .after_inlineCode-2_JXPm) {
+[class*="markup"] span:is([class*="before_inlineCode"], [class*="inlineCode"], [class*="after_inlineCode"]) {
   background: rgba(0, 0, 0, 0.1) !important;
 }
 
-/* Placeholder text for chat box / message box */
-.placeholder-1rCBhr {
+/* Placeholder text for chatbox / message box */
+[class*="placeholder"] {
   font-family: "fanransom";
   font-size: 1.5em;
   line-height: 25px;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   font-weight: bolder;
 }
 
 /* The add attachment button */
-path.attachButtonPlus-3IYelE {
+path[class*="attachButtonPlus"] {
   fill: crimson;
 }
 
-button.attachButton-_ACFSu:hover path {
+/* These cover all of the hitboxes for hovering add attachment chatbox */
+button[class*="attachButton"]:hover path {
   fill: var(--background-primary) !important;
 }
-
-path.attachButtonPlus-3IYelE:hover {
+path[class*="attachButtonPlus"]:hover {
   fill: var(--background-primary) !important;
 }
 
 /* Buttons inside of and to the right in the message edit box */
-.buttons-uaqb-5 button[aria-label="Send a gift"] svg {
+[class*="buttons"] button[aria-label="Send a gift"] svg {
   color: var(--mp-pink);
 }
 
-.buttons-uaqb-5 button[aria-label="Open GIF picker"] svg {
+[class*="buttons"] button[aria-label="Open GIF picker"] svg {
   color: var(--hp-green);
 }
 
-.buttons-uaqb-5 button[aria-label="Open sticker picker"] svg {
+[class*="buttons"] button[aria-label="Open sticker picker"] svg {
   color: var(--p5-blue);
 }
 
-.buttons-uaqb-5 button[aria-label="Select emoji"] div.sprite-2lxwfc {
+[class*="buttons"] button[aria-label="Select emoji"] div[class*="sprite"] {
   filter: unset !important;
 }
 
@@ -1296,7 +1314,7 @@ path.attachButtonPlus-3IYelE:hover {
 }
 
 /* User Panel (right column fuller display of user) */
-.none-1rXy4P.scrollerBase-1Pkza4:not(.scroller-nxCRu_) {
+[class*="none"][class*="scrollerBase"]:not([class*="scroller"]) {
   background-image: url("https://alanmun.github.io/p5r-discord-theme/p5star.gif");
   background-position: center 100%;
   background-repeat: no-repeat;
@@ -1305,36 +1323,43 @@ path.attachButtonPlus-3IYelE:hover {
 
 /* User Popout */
 
-.userPopoutInner-nv9Y92.userProfileInner-1ngKnf {
+[class*="userPopoutInner"][class*="userProfileInner"] {
   background-image: url("https://alanmun.github.io/p5r-discord-theme/p5star.gif");
   background-position: center center;
   background-repeat: no-repeat;
   background-color: rgba(0, 0, 0, 0)
 }
 
-.userProfileOuterThemed-2BgJCM.userPopoutOuter-1OHwPL,
-.userProfileOuterThemed-2BgJCM.userProfileOuter-2tQwNf {
+[class*="userProfileOuterUnthemed"][class*="userPopoutOuter"],
+[class*="userProfileOuterThemed"][class*="userProfileOuter"] {
   padding: 0px;
+  border-radius: 1px;
 }
 
-.profileBadges-2pItdR.containerWithContent-2Yws8V.container-1gYwHN {
+[class*="profileBadges"][class*="containerWithContent"][class*="container"] {
   opacity: 1 !important;
+}
+
+/* Quick DM in a user popout */
+input[class*="inputDefault"][class*="input"][class*="messageInput"] {
+  background: var(--text-on-dark-background);
 }
 
 /* New Server */
 
-.container-1CE3eW {
+/* Code broke, but this is way too general */
+/* [class*="container"] {
   background: #000;
   border: 2px solid #fff;
   transform: skewX(-1deg);
-}
+} */
 
-.container-1CE3eW .flex-1xMQg5 {
+/* [class*="container"] [class*="flex"] {
   background: #000;
   border-top: 0;
-}
+} */
 
-.container-1CE3eW .colorHeaderPrimary-26Jzh- {
+[class*="container"] [class*="colorHeaderPrimary"] {
   color: var(--theme);
   background: #fff;
   padding: 5px 15px;
@@ -1343,25 +1368,12 @@ path.attachButtonPlus-3IYelE:hover {
   transform: skewX(2deg);
 }
 
-.container-1CE3eW .colorHeaderSecondary-3Sp3Ft {
+[class*="container"] .container-UC8Ug1 .colorStandard-2KCXvj,
+[class*="container"] [class*="flex"] .colorStandard-2KCXvj {
   color: #fff;
 }
 
-.container-1CE3eW .container-UC8Ug1 {
-  background: var(--theme);
-  border: 2px solid #fff;
-  border-radius: 2px;
-  display: inline-flex;
-  transform: skewX(3deg);
-  position: relative;
-}
-
-.container-1CE3eW .container-UC8Ug1 .colorStandard-2KCXvj,
-.container-1CE3eW .flex-1xMQg5 .colorStandard-2KCXvj {
-  color: #fff;
-}
-
-.container-1CE3eW .container-UC8Ug1 .colorStandard-2KCXvj::after {
+[class*="container"] .container-UC8Ug1 .colorStandard-2KCXvj::after {
   content: "";
   position: absolute;
   top: calc(50% - 6px);
@@ -1374,17 +1386,17 @@ path.attachButtonPlus-3IYelE:hover {
   transform: rotate(-45deg);
 }
 
-.container-1CE3eW .container-UC8Ug1 .arrow-hynWUl {
+[class*="container"] .container-UC8Ug1 .arrow-hynWUl {
   display: none;
   color: #fff !important;
   /* opacity: 0; */
 }
 
-.container-1CE3eW .flex-1xMQg5 .footerButton-ayFTfX {
+[class*="container"] [class*="flex"] .footerButton-ayFTfX {
   background: var(--mp-pink);
 }
 
-.container-1CE3eW .flex-1xMQg5 .footerButton-ayFTfX:hover {
+[class*="container"] [class*="flex"] .footerButton-ayFTfX:hover {
   background: var(--hp-green);
 }
 
@@ -1454,11 +1466,11 @@ path.attachButtonPlus-3IYelE:hover {
   fill: var(--theme);
 }
 
-.focusLock-Ns3yie .flex-1xMQg5 {
+.focusLock-Ns3yie [class*="flex"] {
   background: #000;
 }
 
-.focusLock-Ns3yie .flex-1xMQg5 .button-38aScr {
+.focusLock-Ns3yie [class*="flex"] .button-38aScr {
   background: #000;
   border: 2px solid #fff;
   border-radius: 2px;
@@ -1466,14 +1478,15 @@ path.attachButtonPlus-3IYelE:hover {
   transform: skewX(-2deg);
 }
 
-.focusLock-Ns3yie .flex-1xMQg5 .colorBrand-3pXr91 {
-  background: #fff;
-  color: var(--theme);
+/* These cover a lot of the settings buttons */
+button[class*="sizeSmall"][class*="grow"] {
+  background: var(--theme) !important;
+  color: var(--text-on-dark-background) !important;
+  border-radius: 0;
 }
-
-.focusLock-Ns3yie .flex-1xMQg5 .colorBrand-3pXr91:hover {
-  background: var(--theme);
-  color: #fff;
+button[class*="sizeSmall"][class*="grow"]:hover {
+  background: #fff !important;
+  color: var(--p5-system) !important;
 }
 
 /* Notification Settings */
@@ -1483,7 +1496,7 @@ path.attachButtonPlus-3IYelE:hover {
 }
 
 /* Input text boxes (for example the boxes that appear when editing user profile for display name and pronouns) */
-input.input-3O04eu {
+input[class*="input"] {
   border-radius: 0;
   color: var(--text-on-white-background);
 }
@@ -1573,11 +1586,12 @@ input.input-3O04eu {
   border-color: var(--mp-pink) !important;
 }
 
-.theme-dark .uploadModal-2ifh8j .footer-3mqk7D .inputDefault-3JxKJ2:checked+.checkbox-1ix_J3 svg path {
+/* todo: what does this do lol  [class*=""] */
+.theme-dark [class*="uploadModal"] [class*="footer"] [class*="inputDefault"]:checked+[class*="checkbox"] svg path {
   fill: var(--mp-pink) !important;
 }
 
-.theme-dark .uploadModal-2ifh8j .footer-3mqk7D .button-38aScr:hover {
+.theme-dark [class*="uploadModal"] [class*="footer"] [class*="button"]:hover {
   background: var(--mp-pink);
   color: #fff;
   box-shadow: 0 0 0 2px #fff;
@@ -1588,20 +1602,6 @@ input.input-3O04eu {
   color: #fff;
 }
 
-.toolbar-2bjZV7 {
-  background: #000;
-  border-radius: 2px;
-  box-shadow: 0 0 0 2px #fff;
-  transform: skewY(2deg);
-}
-
-.toolbar-2bjZV7 .button-qqmJ7w {
-  transform: scale(0.9);
-}
-
-.toolbar-2bjZV7 .button-qqmJ7w:hover svg {
-  color: var(--theme);
-}
 
 /* Tags */
 
@@ -1644,6 +1644,27 @@ input.input-3O04eu {
   }
 }
 
+
+@keyframes erraticStretchQuickSwitcher {
+
+  0%,
+  100% {
+    transform: scaleX(1) scaleY(1.05) skew(calc(var(--scale-factor) * 3deg));
+  }
+
+  25% {
+    transform: scaleX(1.03) scaleY(1) skewX(calc(var(--scale-factor) * 9deg)) skewY(calc(var(--scale-factor) * -0.5deg));
+  }
+
+  50% {
+    transform: scaleX(0.99) scaleY(1.05) skewX(calc(var(--scale-factor) * 9deg));
+  }
+
+  75% {
+    transform: scaleX(1.0) scaleY(1.1) skewX(calc(var(--scale-factor) * 3deg)) skewY(calc(var(--scale-factor) -0.5deg));
+  }
+}
+
 /* Zooms in and out a tiny bit */
 @keyframes pulsate {
 
@@ -1662,11 +1683,11 @@ input.input-3O04eu {
 
   0%,
   100% {
-    transform: rotate(3deg) scale(1.4);
+    transform: rotate(3deg) scale(calc(var(--scale-factor) * 1.35));
   }
 
   50% {
-    transform: rotate(-3deg) scale(1.4);
+    transform: rotate(-3deg) scale(calc(var(--scale-factor) * 1.35));
   }
 }
 
@@ -1674,11 +1695,11 @@ input.input-3O04eu {
 
   0%,
   100% {
-    transform: rotate(3deg) scale(-1.4);
+    transform: rotate(3deg) scale(-1.35);
   }
 
   50% {
-    transform: rotate(-3deg) scale(-1.4);
+    transform: rotate(-3deg) scale(-1.35);
   }
 }
 
@@ -1691,5 +1712,18 @@ input.input-3O04eu {
 
   50% {
     transform: rotate(3deg) scale(1);
+  }
+}
+
+/* adjust rotation as well */
+@keyframes jiggleNormalWithRotation {
+
+  0%,
+  100% {
+    transform: rotate(-.75deg) scale(1.05);
+  }
+
+  50% {
+    transform: rotate(.75deg) scale(1.07);
   }
 }
