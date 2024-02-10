@@ -259,7 +259,7 @@ div[aria-roledescription="Message"]::after {
 }
 
 .theme-dark [class*="lookFilled"][class*="colorPrimary"] {
-  border-radius: 2px;
+  border-radius: 1px;
   background-color: var(--theme);
   color: #fff;
 }
@@ -468,7 +468,7 @@ div[class*="base"] div[class*="sidebar"] {
 .public-DraftEditorPlaceholder-root {
   font-family: 'fanransom';
   letter-spacing: 1px;
-  font-size: 1.75em;
+  font-size: 1.6em;
   padding-top: 3px;
 }
 
@@ -569,19 +569,24 @@ div[class*="wrapper"] > svg > defs > rect {
 }
 
 /* Server list etc */
+div[aria-label="Servers"]>div{
+  padding: 5px 0 5px 0;
+  transform: scale(1.1);
+}
+
 div[aria-label="Servers"]> :nth-child(odd) div[class*="blobContainer"] > div > svg:hover {
   animation: jiggleInverted 0.6s infinite;
 }
 div[aria-label="Servers"]> :nth-child(odd) div[class*="blobContainer"] > div > svg {
   background: url('https://alanmun.github.io/p5r-discord-theme/spikyCircleMenuButton.svg');
-  background-size: 97%;
+  background-size: 98%;
   background-repeat: no-repeat;
   background-position: 50% 100%;
   width: 50px;
   transform: rotate(6deg) scale(-1.2);
 }
 div[aria-label="Servers"]> :nth-child(odd) div[class*="blobContainer"] img {
-  transform: scale(-0.7);
+  transform: scale(-0.65) translateX(1px) translateY(-0.5px); /* Controls the size of the server icon inside spiky bubble */
   border-radius: 100%;
 }
 
@@ -589,29 +594,31 @@ div[aria-label="Servers"]> :nth-child(even) div[class*="blobContainer"] > div > 
   --scale-factor: 1;
   animation: jiggleNormal 0.6s infinite;
 }
-
 div[aria-label="Servers"]> :nth-child(even) div[class*="blobContainer"] > div > svg {
   margin-top: 3px;
   width: 50px;
   background: url('https://alanmun.github.io/p5r-discord-theme/spikyCircleMenuButton.svg');
-  background-size: 97%;
+  background-size: 98%;
   background-repeat: no-repeat;
   background-position: 50% 100%;
   transform: rotate(6deg) scale(1.2);
 }
-
 div[aria-label="Servers"]> :nth-child(even) div[class*="blobContainer"] img {
-  transform: scale(0.7);
+  transform: scale(0.65) translateX(-1px); /* Controls the size of the server icon inside spiky bubble */
   border-radius: 100%;
 }
 
 /* Affects folders */
+div[aria-label="Servers"]>[class*="wrapper"] div[class*="wrapper"] {
+  margin-top: 15px;
+  transform: skewX(3deg) rotate(-3deg);
+}
 div[aria-label="Servers"]>[class*="wrapper"] div[class*="wrapper"]:hover {
   animation: jiggleFolder 0.6s infinite;
 }
-div[aria-label="Servers"]>[class*="wrapper"] div[class*="wrapper"] {
-  margin-top: 15px;
-  transform: skewX(4deg) rotate(6deg);
+/* Same as above but need to be more specific to put a border */
+div[aria-label="Servers"]>[class*="wrapper"] div[class*="wrapper"] div[class*="closedFolderIconWrapper"] {
+  border: 2px solid #fff;
 }
 
 /* ul that contains each server in a folder */
@@ -622,7 +629,7 @@ div[aria-label="Servers"]>[class*="wrapper"] ul {
 /* Matches servers INSIDE folders */
 div[aria-label="Servers"]>[class*="wrapper"] ul div[class*="wrapper"] {
   margin-top: 0px;
-  transform: scale(1.05) rotate(6deg);
+  transform: rotate(6deg);
 }
 
 div[aria-label="Servers"]>[class*="wrapper"] svg foreignObject {
@@ -651,6 +658,7 @@ div[aria-label="Direct Messages"] > div[class*="childWrapper"]:hover {
 }
 
 /* Direct Messages icon requires disable masking to remove rounded corners effect */
+/* TODO: Just this one is firing on the two icons at bottom of server browser side bar */
 div[class*="listItemWrapper"] > div[class*="wrapper"] > svg > foreignObject {
   mask: none;
 }
@@ -959,7 +967,7 @@ li:nth-child(even) .message-2CShn3 .avatar-2e8lTP {
 }
 
 /* Targets all usernames and "Friends" + "Nitro" at top of DM list */
-div[class*="nameAndDecorators"] div[class*="name"] {
+div[class*="avatarWithText"] div[class*="nameAndDecorators"] div[class*="name"] {
   font-family: "fanransom";
   font-size: 1.3em;
   letter-spacing: 2px;
@@ -1068,6 +1076,15 @@ ul[aria-label="Direct Messages"]>h2~li.channel-1Shao0.container-32HW5s:nth-child
   background: rgba(0, 0, 0, 0.6) !important;
 }
 
+/* "Events" when clicked into a server */
+ul[aria-label="Channels"] li[class*="wrapper"] [class*="name"] {
+  font-family: "fanransom";
+  font-size: 1.3em;
+  letter-spacing: 2px;
+  line-height: 100%;
+  margin-top: 5px;
+}
+
 /* User Message Area */
 
 /* TODO: chatbox glitches out when massive amount of text dumped */
@@ -1075,6 +1092,10 @@ ul[aria-label="Direct Messages"]>h2~li.channel-1Shao0.container-32HW5s:nth-child
 /* "Blah is typing... */
 [class*="typing"][class*="base"] {
   color: var(--text-on-dark-background);
+}
+
+input, textarea, [contenteditable] {
+  caret-color: black; /* Sets the caret color to black */
 }
 
 /* chatbox */
@@ -1204,7 +1225,7 @@ path[class*="attachButtonPlus"]:hover {
   color: #fff;
 }
 
-.newMessagesBar-265mhP {
+[class*="newMessagesBar"] {
   border-radius: 2px;
   background: #101010 url("https://alanmun.github.io/p5r-discord-theme/notification.gif") no-repeat;
   background-position-y: 3px;
@@ -1220,7 +1241,7 @@ path[class*="attachButtonPlus"]:hover {
 }
 
 /* Embedded content's description text */
-.embedDescription-1DrJxZ {
+[class*="embedDescription"] {
   color: #fff;
 }
 
@@ -1372,6 +1393,14 @@ input[class*="inputDefault"][class*="input"][class*="messageInput"] {
   background: var(--text-on-dark-background);
 }
 
+/* User profile as displayed in My Account within User Settings */
+[class*="accountProfileCard"] {
+  background-image: url("https://alanmun.github.io/p5r-discord-theme/p5star.gif");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0)
+}
+
 /* New Server */
 
 /* Code broke, but this is way too general */
@@ -1509,7 +1538,7 @@ input[class*="inputDefault"][class*="input"][class*="messageInput"] {
 button[class*="sizeSmall"][class*="grow"] {
   background: var(--theme) !important;
   color: var(--text-on-dark-background) !important;
-  border-radius: 0;
+  border-radius: 1px;
 }
 button[class*="sizeSmall"][class*="grow"]:hover {
   background: #fff !important;
@@ -1734,11 +1763,11 @@ input[class*="input"] {
 
   0%,
   100% {
-    transform: rotate(-3deg) scale(1);
+    transform: skewX(4deg) rotate(-3deg) scale(1);
   }
 
   50% {
-    transform: rotate(3deg) scale(1);
+    transform: skewX(4deg) rotate(3deg) scale(1);
   }
 }
 
