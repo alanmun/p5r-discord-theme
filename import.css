@@ -90,14 +90,14 @@ body {
 }
 
 /* Applies a background to the chat window. I use ::before to control opacity separately (only on background image) */
-main[class^="chatContent-"]::before {
+main[class*="chatContent"]::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  background: var(--p5-system) !important;
+  background: rgba(28, 28, 28, 0.866) !important;
   background-size: 100% 100% !important;
   opacity: 0.9;
   /* Adjust transparency */
@@ -311,17 +311,37 @@ div[aria-roledescription="Message"]::after {
 }
 
 /* Mini-user dock under channels */
+div[class*="flex"][class*="horizontal"][class*="justifyStart"][class*="alignStretch"][class*="noWrap"] > button {
+  border-radius: 2px;
+  border: 2px solid #fff;
+}
+div[class*="flex"][class*="horizontal"][class*="justifyStart"][class*="alignStretch"][class*="noWrap"] path:nth-child(even) {
+  fill: white;
+  transform: scale(1) skewX(-2deg);
+}
+div[class*="flex"][class*="horizontal"][class*="justifyStart"][class*="alignStretch"][class*="noWrap"] path:nth-child(odd) {
+  fill: white;
+  transform: scale(1) skewX(2deg);
+}
+div[class*="flex"][class*="horizontal"][class*="justifyStart"][class*="alignStretch"][class*="noWrap"]>:nth-child(even) {
+  transform: scale(0.9) skewX(2deg);
+}
+div[class*="flex"][class*="horizontal"][class*="justifyStart"][class*="alignStretch"][class*="noWrap"]>:nth-child(odd) {
+  transform: scale(0.9) skewX(-2deg);
+}
 
-/* Mute button */
+/* Mute button in dock */
 button[aria-label="Mute"] {
   background: var(--mp-pink);
   /* p5 pink var, conv'd to rgba */
 }
 
+/* Deafen button in dock */
 button[aria-label="Deafen"] {
   background: var(--hp-green);
 }
 
+/* Settings cog button in dock */
 button[aria-label="User Settings"] {
   background: var(--p5-blue);
 }
@@ -523,8 +543,8 @@ input[aria-label="Search"] {
 }
 
 /* Targeting the Friends tab that appears to the right of "find or start a conversation" */
-section {
-  background: black !important;
+section:not([aria-label="Channel header"]) {
+  background: var(--primary-alt) !important;
 }
 
 /* Restyle only the badges under blobContainers (non-folders), makes their notif sizes equal */
@@ -532,11 +552,6 @@ section {
 /* div[class*="blobContainer"] [class*="lowerBadge"] {
   transform: scaleX(-0.75) scaleY(0.75) !important;
 } */
-
-/* Direct Messages icon disable masking to remove rounded corners */
-svg.svg-2ifYOU foreignObject {
-  /* mask: none; */
-}
 
 /* DM popup notification profile pics (when someone dms you) */
 .scroller-3X7KbA.none-1rXy4P.scrollerBase-1Pkza4 svg.svg-2ifYOU mask+mask+foreignObject {
@@ -627,9 +642,21 @@ div[aria-label="Servers"]>[class*="wrapper"] div[aria-expanded="true"] {
 
 
 /* Direct Messages icon */
-.guilds-2JjMmN .tutorialContainer-1pL9QS .wrapper-3kah-n .childWrapper-1j_1ub {
+div[aria-label="Direct Messages"] > div[class*="childWrapper"] {
   background: rgba(0, 0, 0, 0) url("https://alanmun.github.io/p5r-discord-theme/im.png") no-repeat center / 120%;
-  /* mask: none !important; */
+  background-color: transparent !important;
+}
+div[aria-label="Direct Messages"] > div[class*="childWrapper"]:hover {
+  animation: jiggleNormalWithRotation 1s infinite;
+}
+
+/* Direct Messages icon requires disable masking to remove rounded corners effect */
+div[class*="listItemWrapper"] > div[class*="wrapper"] > svg > foreignObject {
+  mask: none;
+}
+/* Hide the wumpus thing so it doesn't occlude IM icon */
+div[class*="listItemWrapper"] > div[class*="wrapper"] > svg > foreignObject svg {
+  visibility: hidden;
 }
 
 /* DM people list */
@@ -932,7 +959,7 @@ li:nth-child(even) .message-2CShn3 .avatar-2e8lTP {
 }
 
 /* Targets all usernames and "Friends" + "Nitro" at top of DM list */
-.name-2m3Cms {
+div[class*="nameAndDecorators"] div[class*="name"] {
   font-family: "fanransom";
   font-size: 1.3em;
   letter-spacing: 2px;
@@ -941,7 +968,7 @@ li:nth-child(even) .message-2CShn3 .avatar-2e8lTP {
 }
 
 /* Overrides first class with more specificity so we don't apply font to every username */
-.name-2m3Cms>.overflow-1wOqNV {
+div[class*="nameAndDecorators"] div[class*="name"]>[class*="overflow"] {
   font-family: 'Varela Round';
   font-size: initial;
   line-height: 120%;
@@ -1051,7 +1078,7 @@ ul[aria-label="Direct Messages"]>h2~li.channel-1Shao0.container-32HW5s:nth-child
 }
 
 /* chatbox */
-[class*=".scrollableContainer-"] {
+[class*="scrollableContainer"] {
   overflow-y: hidden;
   padding-right: 8px;
   border-radius: 0;
