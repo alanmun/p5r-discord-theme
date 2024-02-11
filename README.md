@@ -18,3 +18,6 @@ You need Better Discord to use this theme! If you don't have that, get it here: 
 - Assets ripped directly from Persona 5 such as the perfectly looping twinkling star gif (Ex: `p5star.gif`)
   - Other assets recreated in Figma to replicate various UI elements from the game (Ex: `spikyCircleMenuButton.svg`)
 - Animations when hovering over buttons mimic UI/UX of P5R
+
+## Any issues?
+If you have any problems with the theme, or feedback, or just opinions on how the theme should look, feel free to create an issue in the Issues tab and let me know!
