@@ -9,21 +9,31 @@
   src: url('https://alanmun.github.io/p5r-discord-theme/shoplifter.ttf');
 }
 
+/* Almost as good as shoplifter in terms of nailing the look, but it has way better support for characters */
 @font-face {
   font-family: 'fanransom';
   src: url('https://alanmun.github.io/p5r-discord-theme/Persona5FanRansom.ttf');
 }
 
+/* Softer, informal persona font */
 @font-face {
-  font-family: "persona";
+  font-family: "personified";
   src: url("https://alanmun.github.io/p5r-discord-theme/PersonifiedUXRegular.ttf");
   font-weight: 500;
 }
 
+/* Idk its like personified but bolder? I use it for date dividers... */
 @font-face {
   font-family: "New P5";
   src: url("https://alanmun.github.io/p5r-discord-theme/P5Alt.ttf");
   font-weight: 500;
+}
+
+/* Someone on HarryType-C server sent me this, its great at replicating the system menu and popup fonts in game */
+@font-face {
+  font-family: "system-and-popups";
+  src: url("https://alanmun.github.io/p5r-discord-theme/optimanova.ttf");
+  font-weight: 100;
 }
 
 :root {
@@ -37,6 +47,7 @@
   --hp-green: rgba(0, 221, 178, 0.90);
   --mp-pink: rgba(255, 102, 237, 0.867);
   --p5-blue: rgba(64, 193, 251, 0.90);
+  --p5-blue-hovered: rgba(34, 163, 221, 0.90);
   --p5-system: rgba(43, 43, 43, 0.866);
 
   /* Standard Variables */
@@ -87,6 +98,10 @@
 */
 body {
   font-family: "Varela Round", "gg sans", "Noto Sans";
+}
+
+h2, h1 {
+  font-family: 'system-and-popups' !important;
 }
 
 /* Applies a background to the chat window. I use ::before to control opacity separately (only on background image) */
@@ -198,6 +213,25 @@ div[aria-roledescription="Message"]::after {
   transform: skew(-12deg);
   z-index: -1;
 } */
+
+/* Generic popups */
+[class*="popout"] {
+  border-radius: 1px;
+  background-color: #222;
+}
+[class*="popout"] button {
+  border-radius: 1px;
+  background-color: var(--p5-blue) !important;
+}
+[class*="popout"] button:hover {
+  background-color: var(--p5-blue-hovered) !important;
+}
+
+/* Used in the NEW badge icon */
+[class*="textBadge"]{
+  border-radius: 1px;
+  background-color: var(--p5-blue-hovered) !important;
+}
 
 /* Active Now right column section in Friends tab */
 [class*="itemCard"] {
@@ -323,10 +357,10 @@ div[class*="flex"][class*="horizontal"][class*="justifyStart"][class*="alignStre
   fill: white;
   transform: scale(1) skewX(2deg);
 }
-div[class*="flex"][class*="horizontal"][class*="justifyStart"][class*="alignStretch"][class*="noWrap"]>:nth-child(even) {
+section[aria-label="User area"] div[class*="flex"][class*="horizontal"][class*="justifyStart"][class*="alignStretch"][class*="noWrap"]>:nth-child(even) {
   transform: scale(0.9) skewX(2deg);
 }
-div[class*="flex"][class*="horizontal"][class*="justifyStart"][class*="alignStretch"][class*="noWrap"]>:nth-child(odd) {
+section[aria-label="User area"] div[class*="flex"][class*="horizontal"][class*="justifyStart"][class*="alignStretch"][class*="noWrap"]>:nth-child(odd) {
   transform: scale(0.9) skewX(-2deg);
 }
 
@@ -499,17 +533,15 @@ input[aria-label="Quick switcher"] {
 
 /* Targets the real search bar that appears when in friends tab, above the currently online users, probably targets others too */
 [class*="container"][class*="searchBar"] {
-  border-radius: 0;
+  border-radius: 1px;
   transform: skew(3deg);
 }
-
 [class*="container"][class*="searchBar"]:hover {
   --scale-factor: 1.006;
   animation: pulsate 0.6s infinite;
 }
-
-input[aria-label="Search"] {
-  /* Text for this bar exists in an input */
+[class*="container"][class*="searchBar"] input[aria-label="Search"] {
+  background: unset; /* Prevent my other rules from affecting this guy's bg */
   color: var(--text-on-dark-background);
 }
 
@@ -545,6 +577,29 @@ input[aria-label="Search"] {
 /* Targeting the Friends tab that appears to the right of "find or start a conversation" */
 section:not([aria-label="Channel header"]) {
   background: var(--primary-alt) !important;
+}
+
+section:not([aria-label="Channel header"]) [class*="children"]{
+  font-family: 'system-and-popups';
+}
+
+/* Friends online All pending Suggestions Blocked Add Friend */
+section:not([aria-label="Channel header"]) [class*="children"] h1{
+  font-family: 'system-and-popups';
+}
+section:not([aria-label="Channel header"]) [class*="children"] [aria-label="Friends"] div{
+  border-radius: 1px;
+  transform: skewY(0.25deg) skewX(6deg);
+}
+section:not([aria-label="Channel header"]) div[aria-label="Add Friend"] {
+  background-color: var(--hp-green) !important;
+  border-radius: 2px;
+  border: 2px white solid;
+  transform: skewY(-0.75deg) skewX(-6deg);
+}
+section:not([aria-label="Channel header"]) div[aria-label="Add Friend"]:hover {
+  --scale-factor: 1;
+  animation: erraticStretch 0.8s infinite;
 }
 
 /* Restyle only the badges under blobContainers (non-folders), makes their notif sizes equal */
@@ -774,54 +829,29 @@ div[aria-label="Members"]>h3.membersGroup-2eiWxl:nth-child(odd)>span {
 
 /* Friends Page Main Area */
 
-.container-ZMc96U.themed-Hp1KC_ {
-  background: var(--background-secondary);
-}
-
-.theme-dark .children-3xh0VB:after {
-  display: none;
-}
-
-.interactive-1vLZ_I:hover {
-  background: rgba(10, 10, 10, 0.5);
-}
-
-.interactive-1vLZ_I.interactiveSelected-29CP8y.selected-3veCBZ {
-  background: rgba(10, 10, 10, 0.5);
-}
-
-.peopleColumn-1wMU14 {
-  background: rgba(10, 10, 10, 0.8);
-}
-
-.peopleList-2VBrVI .peopleListItem-u6dGxF .avatar-2e8lTP {
-  border: 2px solid #fff;
-  border-radius: 2px;
-  background: #000;
-}
-
-.peopleList-2VBrVI .peopleListItem-u6dGxF:nth-child(2n + 3) .avatar-3W3CeO {
-  transform: rotate(4deg);
-}
-
-[class*="peopleList"] [class*="peopleListItem"] [class*="avatar"] svg foreignObject {
+[class*="peopleList"] [class*="peopleListItem"] [class*="avatar"] :not([class*="userInfo"]) svg foreignObject {
   mask: url("https://alanmun.github.io/p5r-discord-theme/im.png");
 }
 
-.peopleList-2VBrVI .peopleListItem-u6dGxF .actions-1SQwjn .actionButton-uPB8Fs {
-  border-radius: 2px;
-  background: #000;
-  border: 2px solid #fff;
-  transform: rotate(-4deg);
+[class*="peopleList"] [class*="peopleListItem"] [class*="actions"] [aria-label="Message"] {
+  border-radius: 50%;
+  background: var(--p5-blue);
   color: #fff;
 }
-
-.peopleList-2VBrVI .peopleListItem-u6dGxF:hover {
-  background: rgba(10, 10, 10, 0.8);
+[class*="peopleList"] [class*="peopleListItem"] [class*="actions"] [aria-label="Message"]:hover {
+  --scale-factor: 0.1;
+  animation: erraticStretch 0.8s infinite;
 }
 
-.peopleList-2VBrVI .peopleListItem-u6dGxF .actions-1SQwjn .actionButton-uPB8Fs:nth-child(even) {
-  color: var(--theme);
+
+[class*="peopleList"] [class*="peopleListItem"] [class*="actions"] [aria-label="More"] {
+  border-radius: 50%;
+  background: var(--mp-pink);
+  color: #fff;
+}
+[class*="peopleList"] [class*="peopleListItem"] [class*="actions"] [aria-label="More"]:hover {
+  --scale-factor: 0.1;
+  animation: erraticStretch 0.8s infinite;
 }
 
 /* Now Playing */
@@ -977,7 +1007,7 @@ div[class*="avatarWithText"] div[class*="nameAndDecorators"] div[class*="name"] 
 
 /* Overrides first class with more specificity so we don't apply font to every username */
 div[class*="nameAndDecorators"] div[class*="name"]>[class*="overflow"] {
-  font-family: 'Varela Round';
+  font-family: 'personified';
   font-size: initial;
   line-height: 120%;
   letter-spacing: normal;
@@ -1045,15 +1075,15 @@ ul[aria-label="Direct Messages"]>h2~li.channel-1Shao0.container-32HW5s:nth-child
 
 /* Date dividers */
 
-.divider-IqmEqJ {
+[class*="divider"] {
   /* border-color: rgba(255, 255, 255, 0.7); */
   border-color: #333;
 }
 
 /* Sets the font for actual date dividers in chats */
-.divider-IqmEqJ .content-3spvdd {
+[class*="divider"] span:not([class*="endCap"]) {
   font-family: "New P5";
-  font-size: 0.75em;
+  font-size: 0.85em;
   color: #000;
   background: #fff;
   letter-spacing: 3px;
@@ -1063,17 +1093,22 @@ ul[aria-label="Direct Messages"]>h2~li.channel-1Shao0.container-32HW5s:nth-child
   transform: skew(6deg);
 }
 
-.divider-IqmEqJ:nth-child(2n + 1) .content-3spvdd {
-  transform: skew(-6deg);
+/* This is the little ticker thing to the right of the most recent date divider, when a msg was new */
+[class*="divider"] span[class*="endCap"] {
+  font-family: "New P5";
+  font-size: 0.6em;
+  background: var(--p5-blue-hovered);
+  letter-spacing: 1px;
+  border-radius: 0 1px 1px 0;
+  line-height: 50%;
+}
+[class*="divider"] span[class*="endCap"] path {
+  color: var(--p5-blue-hovered);
+  fill: var(--p5-blue-hovered);
 }
 
-.messageContent-2t3eCI .mention {
-  background: var(--p5-primary);
-  color: #fff !important;
-}
-
-.messageContent-2t3eCI .mention:hover {
-  background: rgba(0, 0, 0, 0.6) !important;
+[class*="messageContent"] {
+  color: #fff;
 }
 
 /* "Events" when clicked into a server */
@@ -1087,7 +1122,18 @@ ul[aria-label="Channels"] li[class*="wrapper"] [class*="name"] {
 
 /* User Message Area */
 
-/* TODO: chatbox glitches out when massive amount of text dumped */
+/* The mention suggestion box that popsup when you type @... */
+[class*="autocompleteAttached"] {
+  border-radius: 1px;
+  background: black !important;
+  border: 0px solid white;
+  /*TODO: anim for this would be sweet since its a popup  */
+}
+[class*="autocompleteAttached"] [class*="base"] {
+  border-radius: 1px;
+}
+
+/* ? chatbox glitches out when massive amount of text dumped, but I've decided to ignore this because it requires you to go out of character limit even for nitro users, so who cares */
 
 /* "Blah is typing... */
 [class*="typing"][class*="base"] {
@@ -1118,8 +1164,6 @@ input, textarea, [contenteditable] {
 
 /* Affects any text user has written into the chatbox */
 [class*="scrollableContainer"] [class*="inner"] [class*="markup"] span {
-  font-size: 0.96em;
-  font-family: "Varela Round", "gg sans";
   color: #000;
 }
 
@@ -1168,8 +1212,8 @@ path[class*="attachButtonPlus"]:hover {
 }
 
 /* When editing a message, the helper text that appears (escape to cancel * enter to save) */
-.operations-3q3u6E {
-  color: var(--header-secondary);
+[class*="operations"] {
+  font-family: "varela round";
 }
 
 .placeholder-1_mJY1 {
@@ -1186,63 +1230,48 @@ path[class*="attachButtonPlus"]:hover {
   caret-color: var(--theme);
 }
 
-.channelTextArea-1VQBuV .slateTextArea-27tjG0 .syntaxBefore-3pDAmR,
-.channelTextArea-1VQBuV .slateTextArea-27tjG0 .inlineCode-2auMQi,
-.channelTextArea-1VQBuV .slateTextArea-27tjG0 .syntaxAfter-OxiKEl {
-  background: var(--mp-pink);
-}
-
-.channelTextArea-1VQBuV .slateTextArea-27tjG0 .inlineCode-2auMQi span {
-  color: #fff;
-}
-
-/* / Command Area */
-.channelTextArea-1VQBuV .autocomplete-3NRXG8 {
-  transform: skewX(-2deg);
-}
-
-.channelTextArea-1VQBuV .autocomplete-3NRXG8 .autocompleteInner-y1mjDl {
-  background: var(--background-secondary);
-}
-
-.channelTextArea-1VQBuV .autocomplete-3NRXG8 .autocompleteInner-y1mjDl .categorySection-3hl0bM .wrapper-1NNaWG {
-  background: none;
-}
-
-.channelTextArea-1VQBuV .autocomplete-3NRXG8 .autocompleteInner-y1mjDl .infoWrapper-33i2RS .colorInteractiveActive-30E9n8 {
-  color: #fff;
-}
-
-.channelTextArea-1VQBuV .autocomplete-3NRXG8 .autocompleteInner-y1mjDl .selected-3H3-RC {
-  background: var(--theme) !important;
-}
-
-.theme-dark .pill-2pQByF {
-  background: var(--hp-green);
-}
-
-.theme-dark .pill-2pQByF span {
-  color: #fff;
-}
-
-[class*="newMessagesBar"] {
-  border-radius: 2px;
+/* TODO: Almost there, but scaling problems. things just don't scale the same amts when window resized */
+/* The new messages are available popup */
+/* [class*="newMessagesBar"] {
+  border-radius: 1px;
   background: #101010 url("https://alanmun.github.io/p5r-discord-theme/notification.gif") no-repeat;
   background-position-y: 3px;
   background-position-x: 10px;
-  background-size: 20px;
+  background-size: 1.4%;
   box-shadow: 0 0 0 2px #fff;
   top: 2px;
   flex-direction: column;
   display: inline-flex;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 50%;
+  left: 30%;
   right: 0;
 }
+[class*="newMessagesBar"] button[aria-label="Jump to last unread message"] {
+  overflow: visible;
+  font-family: "system-and-popups";
+  transform: translateY(15%);
+} */
+/* This is the "Mark as read" button */
+/* [class*="newMessagesBar"] button:not([aria-label="Jump to last unread message"]) {
+  transform: translateX(140%) translateY(-85%);
+  background: transparent;
+} */
+/* TODO end */
 
 /* Embedded content's description text */
 [class*="embedDescription"] {
   color: #fff;
+}
+
+/* Unread mentions in the Discord server list (the NEW bubble) */
+[class*="unreadMentionsBar"] {
+  border-radius: 1px;
+  opacity: 0.95;
+  width: 70%;
+  height: 80%;
+  left: 15%;
+  top: 15%;
+  background-color: var(--p5-blue-hovered);
 }
 
 /* Mention override cause it's too hard to read as is */
@@ -1361,16 +1390,9 @@ path[class*="attachButtonPlus"]:hover {
   font-weight: 600;
 }
 
-/* User Panel (right column fuller display of user) */
-[class*="none"][class*="scrollerBase"]:not([class*="scroller"]) {
-  background-image: url("https://alanmun.github.io/p5r-discord-theme/p5star.gif");
-  background-position: center 100%;
-  background-repeat: no-repeat;
-  background-color: rgba(0, 0, 0, 0)
-}
-
 /* User Popout */
 
+[class*="userProfileInner"][class*="userPanelInner"],
 [class*="userPopoutInner"][class*="userProfileInner"] {
   background-image: url("https://alanmun.github.io/p5r-discord-theme/p5star.gif");
   background-position: center center;
@@ -1382,6 +1404,11 @@ path[class*="attachButtonPlus"]:hover {
 [class*="userProfileOuterThemed"][class*="userProfileOuter"] {
   padding: 0px;
   border-radius: 1px;
+}
+
+/* TODO: Need to control the transparent bg in user popouts */
+[class*="userPopoutOverlayBackground"] {
+  opacity: 1 !important;
 }
 
 [class*="profileBadges"][class*="containerWithContent"][class*="container"] {
@@ -1551,9 +1578,15 @@ button[class*="sizeSmall"][class*="grow"]:hover {
   background: #000;
 }
 
+/* AKA badge, similar to NEW badge */
+[class*="akaBadge"] {
+  background: transparent !important;
+}
+
 /* Input text boxes (for example the boxes that appear when editing user profile for display name and pronouns) */
 input[class*="input"] {
-  border-radius: 0;
+  border-radius: 1px;
+  background: var(--header-primary);
   color: var(--text-on-white-background);
 }
 
