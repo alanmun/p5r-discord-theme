@@ -1,4 +1,3 @@
-
 /* Import Varela Round Font */
 @import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"); 
 
@@ -120,26 +119,31 @@ main[class*="chatContent"]::before {
 }
 
 /* the top bar containing min/max/X out */
-[class^="typeWindows"] {
-  height: 24px;
+[class^="typeWindows_"] {
+  height: 28px;
+  margin: 0px;
+}
+/* Hack: set entire mount background to match the color of top bar instead of fighting with height bs */
+div#app-mount {
+  background-color: var(--p5-primary-fix);
 }
 
 /* minimize button */
 div[aria-label="Minimize"] {
-  top: -3px;
-  height: 27px;
+  top: 0px;
+  height: inherit;
 }
 
 /* maximize button */
 div[aria-label="Maximize"] {
-  top: -3px;
-  height: 27px;
+  top: 0px;
+  height: inherit;
 }
 
 /* X out button to quit app */
 div[aria-label="Close"] {
-  top: -3px;
-  height: 27px;
+  top: 0px;
+  height: inherit;
 }
 
 /* Discord logo */
@@ -462,22 +466,40 @@ button[aria-label="User Settings"] {
 }
 
 /* BetterDiscord blue notifications */
-.bd-notice:first-child {
+#bd-notices > * {
   border-radius: 0;
   background: white;
   /* border: solid black 3px; */
   color: black;
-  width: 90vw;
-  margin-left: 1vw;
-  transform: skewX(5deg);
-}
-
-.bd-notice:first-child>* {
-  color: black;
+  /* width: 95%; */
+  /* margin-left: 1vw; */
+  /* transform: skewX(1deg); */
 }
 
 #bd-notices {
-  transform: rotate(-10deg) skewY(10deg)
+  transform: rotate(0deg) skewY(0deg)
+}
+
+.bd-notice-close {
+  background-color: var(--p5-primary-fix);
+  scale: 0.8;
+  opacity: 1;
+  border: solid white 1px;
+  transition: background-color .2s ease,color .2s ease,border-color .2s ease;
+}
+
+.bd-notice-close:hover {
+  background-color: black;
+}
+
+/* More Info button for betterdiscord notices */
+.bd-notice-button {
+  border: solid black 1px;
+  color: black;
+}
+.bd-notice-button:hover {
+  background: black;
+  color: white;
 }
 
 /* Remove corner radius for corner just under Discord logo at top left */
@@ -575,7 +597,7 @@ input[aria-label="Quick switcher"] {
 }
 
 /* Targeting the Friends tab that appears to the right of "find or start a conversation" */
-section:not([aria-label="Channel header"]) {
+section:not([aria-label="Channel header"]):not([aria-label="Expression Picker"]) {
   background: var(--primary-alt) !important;
 }
 
@@ -1211,6 +1233,12 @@ path[class*="attachButtonPlus"]:hover {
   filter: unset !important;
 }
 
+/* Search bar within the emoji picker */
+[class*="emojiPicker"] > div > div[class*="searchBar_"] > div {
+  overflow-y: unset !important;
+  padding: 0px;
+}
+
 /* When editing a message, the helper text that appears (escape to cancel * enter to save) */
 [class*="operations"] {
   font-family: "varela round";
@@ -1406,9 +1434,22 @@ path[class*="attachButtonPlus"]:hover {
   border-radius: 1px;
 }
 
-/* TODO: Need to control the transparent bg in user popouts */
-[class*="userPopoutOverlayBackground"] {
-  opacity: 1 !important;
+/* Profile Picture inside of popout */
+[class*="userPopout"] > header > div[class*="avatar_"]{
+  top: 13%;
+  left: 4%;
+}
+
+/* THe first box in profile popout, the one that has username, handle, badges */
+[class*="userPopout"] > div > div[class*="username_"] {
+  background: rgb(var(--bg-overlay-color) / var(--bg-overlay-opacity-2));
+  border-radius: var(--radius-sm);
+  padding: 8px;
+}
+
+/* 2nd box: Online/Set Custom Status + 3rd Box: Switch Accounts/Copy User ID */
+[class*="biteSizeOverlayBackground_"][class*="overlayBackground_"] {
+  background: rgb(var(--bg-overlay-color) / .575) !important;
 }
 
 [class*="profileBadges"][class*="containerWithContent"][class*="container"] {
@@ -1429,18 +1470,6 @@ input[class*="inputDefault"][class*="input"][class*="messageInput"] {
 }
 
 /* New Server */
-
-/* Code broke, but this is way too general */
-/* [class*="container"] {
-  background: #000;
-  border: 2px solid #fff;
-  transform: skewX(-1deg);
-} */
-
-/* [class*="container"] [class*="flex"] {
-  background: #000;
-  border-top: 0;
-} */
 
 [class*="container"] [class*="colorHeaderPrimary"] {
   color: var(--theme);
