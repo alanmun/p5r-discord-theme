@@ -1434,23 +1434,153 @@ path[class*="attachButtonPlus"]:hover {
   border-radius: 1px;
 }
 
-/* Profile Picture inside of popout */
-[class*="userPopout"] > header > div[class*="avatar_"]{
+/* Edit Profile button in user profile (top ruight?) */
+[class*="userProfileOuter"] > div[class*="wrapper_"][class*="biteSize_"], [class*="userProfileInner"] > div[class*="wrapper_"][class*="biteSize_"]{
+  background: rgb(var(--bg-overlay-color) / var(--bg-overlay-opacity-1));
+  border-radius: 3px;
+  border: 2px solid white;
+  transform: skewX(-4deg);
+  scale: 0.8;
+  transition: background-color var(--custom-button-transition-duration)ease,color var(--custom-button-transition-duration)ease;
+}
+[class*="userProfileOuter"] > div[class*="wrapper_"][class*="biteSize_"]:hover, [class*="userProfileInner"] > div[class*="wrapper_"][class*="biteSize_"]:hover{
+  background: white;
+}
+[class*="userProfileOuter"] > div[class*="wrapper_"][class*="biteSize_"] > * > button > div,
+[class*="userProfileInner"] > div[class*="wrapper_"][class*="biteSize_"] > * > button > div{
+  scale: 1.5;
+  overflow: hidden;
+  background: none;
+}
+[class*="userProfileOuter"] > div[class*="wrapper_"][class*="biteSize_"]:hover > * > button:not([aria-label="Edit Profile"]),
+[class*="userProfileInner"] > div[class*="wrapper_"][class*="biteSize_"]:hover > * > button:not([aria-label="More"]):not([aria-label="Add Friend"]){
+  background: none;
+}
+[class*="userProfileOuter"] > div[class*="wrapper_"][class*="biteSize_"]:hover > * > button:not([aria-label="More"]):not([aria-label="Add Friend"]) > div > svg,
+[class*="userProfileInner"] > div[class*="wrapper_"][class*="biteSize_"]:hover > * > button:not([aria-label="More"]):not([aria-label="Add Friend"]) > div > svg{
+  background: none;
+  padding: 0;
+  opacity: 0s;
+}
+[class*="userProfileOuter"] > div[class*="wrapper_"][class*="biteSize_"]:hover > * > button:not([aria-label="More"]):not([aria-label="Add Friend"]) > div > svg > path,
+[class*="userProfileInner"] > div[class*="wrapper_"][class*="biteSize_"]:hover > * > button:not([aria-label="More"]):not([aria-label="Add Friend"]) > div > svg > path{
+  color: black;
+  background: black;
+}
+/* Profile Picture inside of user profile */
+[class*="userProfileOuter"] > header > div[class*="avatar_"]{
   top: 13%;
   left: 4%;
 }
-
 /* THe first box in profile popout, the one that has username, handle, badges */
 [class*="userPopout"] > div > div[class*="username_"] {
-  background: rgb(var(--bg-overlay-color) / var(--bg-overlay-opacity-2));
+  background: rgb(var(--bg-overlay-color) / var(--bg-overlay-opacity-1));
   border-radius: var(--radius-sm);
   padding: 8px;
 }
-
 /* 2nd box: Online/Set Custom Status + 3rd Box: Switch Accounts/Copy User ID */
 [class*="biteSizeOverlayBackground_"][class*="overlayBackground_"] {
   background: rgb(var(--bg-overlay-color) / .575) !important;
 }
+
+/* Targeting boxes in the server profile, as opposed to the above which target the user profile (bottom left corner when you click on your name */
+[class*="userProfileInner"] > div > [class^="container"]{
+  background: rgb(var(--bg-overlay-color) / var(--bg-overlay-opacity-1));
+  border-radius: var(--radius-sm);
+  padding: 8px;
+}
+[class*="userProfileInner"] > div > div:not([aria-hidden="true"]):not([class^="container"])[class]{
+  background: rgb(var(--bg-overlay-color) / var(--bg-overlay-opacity-1));
+  border-radius: var(--radius-sm);
+  padding: 8px;
+}
+[class*="userProfileInner"] > div > div:not([aria-hidden="true"]):not([class^="container"]):nth-child(3){
+  background: rgb(var(--bg-overlay-color) / var(--bg-overlay-opacity-1));
+  border-radius: var(--radius-sm);
+  padding: 8px;
+}
+[class*="userProfileInner"] > div > div:not([aria-hidden="true"]):not([class^="container"]):nth-child(4){
+  background: rgb(var(--bg-overlay-color) / var(--bg-overlay-opacity-1));
+  border-radius: var(--radius-sm);
+  padding: 8px;
+}
+/* Message ... inside of the server profile */
+[class*="userProfileInner"] > footer > div,
+[class*="userProfileInner"] > footer > div > div {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-sm);
+  transform: unset;
+}
+
+/* Profile Picture inside of server profile */
+[class*="userProfileInner"] > header > div[class*="avatar_"]{
+  top: 40%;
+  left: 4%;
+}
+[class*="userProfileInner"] > header{
+  position: relative;
+}
+/* Add friend AND ... button in server profile (top ruight?) */
+div:not([class*="accountProfilePopoutWrapper_"]) > * > * > [class*="userProfileInner"] > div[class*="wrapper_"][class*="biteSize_"] {
+  gap: 10px;
+  border: none;
+  background: none;
+}
+[class*="userProfileInner"] > div[class*="wrapper_"][class*="biteSize_"] > div[class] {
+  background: none;
+  border-radius: 3px;
+  scale: 0.7;
+}
+/* The add friend + */
+[class*="userProfileInner"] > div[class*="wrapper_"][class*="biteSize_"] > *:nth-child(1) > button:not([aria-label="Edit Profile"]) {
+  scale: 1.3;
+  background: none;
+  color: white;
+  transform: skewX(2deg) rotate(-1deg);
+}
+[class*="userProfileInner"] > div[class*="wrapper_"][class*="biteSize_"] > *:nth-child(1) > button:not([aria-label="Edit Profile"]) > div {
+  border: 1.5px solid white;
+  border-radius: 2px;
+  overflow: hidden;
+}
+[class*="userProfileInner"] > div[class*="wrapper_"][class*="biteSize_"] > *:nth-child(1) > button:not([aria-label="Edit Profile"]) > div > svg {
+  scale: 1;
+  overflow: hidden;
+  background: black;
+}
+[class*="userProfileInner"] > div[class*="wrapper_"][class*="biteSize_"] > *:nth-child(1):hover > button:not([aria-label="Edit Profile"]) {
+  color: black;
+}
+[class*="userProfileInner"] > div[class*="wrapper_"][class*="biteSize_"] > *:nth-child(1):hover > button:not([aria-label="Edit Profile"]) > div > svg {
+  background: white;
+}
+/* The ... */
+[class*="userProfileInner"] > div[class*="wrapper_"][class*="biteSize_"] > *:nth-child(2) > button {
+  scale: 1.5;
+  background: none;
+  transform: skewX(5deg) rotate(-4deg);
+}
+[class*="userProfileInner"] > div[class*="wrapper_"][class*="biteSize_"] > *:nth-child(2) > button > div{
+  scale: 1.3;
+  border: 1.5px solid white;
+  border-radius: 2px;
+}
+[class*="userProfileInner"] > div[class*="wrapper_"][class*="biteSize_"] > *:nth-child(2) > button > div > svg{
+  scale: 1;
+  background-color: black;
+  color: white;
+}
+[class*="userProfileInner"] > div[class*="wrapper_"][class*="biteSize_"] > *:nth-child(2):hover > button {
+  background: none;
+}
+[class*="userProfileInner"] > div[class*="wrapper_"][class*="biteSize_"] > *:nth-child(2):hover > button > div{
+  background: white;
+}
+[class*="userProfileInner"] > div[class*="wrapper_"][class*="biteSize_"] > *:nth-child(2):hover > button > div > svg{
+  background-color: white;
+  color: black;
+}
+
 
 [class*="profileBadges"][class*="containerWithContent"][class*="container"] {
   opacity: 1 !important;
