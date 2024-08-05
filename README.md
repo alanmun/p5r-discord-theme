@@ -6,7 +6,11 @@ Theme for Better Discord, inspired by Persona 5 Royal
 
 You need Better Discord to use this theme! If you don't have that, get it here: https://betterdiscord.app/
 
-**Important:** This theme only works with the basic dark theme provided for free in Discord. If you are using light mode, switch to dark mode. If you are a Nitro subscriber and you are using the color themes provided by Discord (as of writing they are a Beta feature) you should also switch off of them and use the basic dark theme. Additionally, I recommend turning "Sync profile themes" option on, its in User Settings -> Accessibility (underneath the App Settings sub-section):
+**Important:** 
+This theme only works with the basic dark theme provided for free in Discord. If you are using light mode, switch to dark mode. If you are a Nitro subscriber and you are using the color themes provided by Discord (as of writing they are a Beta feature) you should also switch off of them and use the basic dark theme. 
+![image](https://github.com/user-attachments/assets/9df6d2ea-4a3e-422f-90e4-7c2cf50c22f4)
+
+Additionally, I recommend turning "Sync profile themes" option on, its in User Settings -> Accessibility (underneath the App Settings sub-section):
 
 ![image](https://github.com/alanmun/p5r-discord-theme/assets/16566003/66a6bbdb-5b9e-4320-952c-2114906f162e)
 ![image](https://github.com/alanmun/p5r-discord-theme/assets/16566003/c3f0d2c0-4407-4cea-949a-71d96d0a02f6)
