@@ -1,6 +1,8 @@
 # p5r-discord-theme
 Theme for Better Discord, inspired by Persona 5 Royal
 
+> Note: I haven't had time to work on this anymore, if you have any fixes please feel free to open a PR or fork this!
+
 ## Installing
 `p5r.theme.css` is the only file you need. All other files in the repository are loaded via the internet. Place this in your themes folder, mine for example is here: `C:\Users\MY_USERNAME\AppData\Roaming\BetterDiscord\themes`
 
