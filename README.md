@@ -3,6 +3,7 @@ Theme for Better Discord, inspired by Persona 5 Royal
 
 > Note: I haven't had time to work on this anymore, if you have any fixes please feel free to open a PR or fork this!
 
+
 ## Installing
 `p5r.theme.css` is the only file you need. All other files in the repository are loaded via the internet. Place this in your themes folder, mine for example is here: `C:\Users\MY_USERNAME\AppData\Roaming\BetterDiscord\themes`
 
@@ -24,6 +25,13 @@ Additionally, I recommend turning "Sync profile themes" option on, its in User S
 - Assets ripped directly from Persona 5 such as the perfectly looping twinkling star gif (Ex: `p5star.gif`)
   - Other assets recreated in Figma to replicate various UI elements from the game (Ex: `spikyCircleMenuButton.svg`)
 - Animations when hovering over buttons mimic UI/UX of P5R
+
+## Want to help contribute?
+I have a full time job now as a software engineer and on the side I am doing solo indie game dev, so I just don't have the time to maintain this project anymore. If you would like to contribute by opening a PR with suggested changes, that would be really appreciated. What I ask is:
+1. Provide a before/after screenshot comparison so reviewers can quickly tell how its different now
+2. Make sure that it works on the basic dark theme provided for free on Discord. If it also works in other themes, that's great, but the goal is to just get the theme to look nice when set to dark mode at the very least.
+
+And that's it. You are also welcome to fork this project if you want to maintain your own version.
 
 ## Any issues?
 If you have any problems with the theme, or feedback, or just opinions on how the theme should look, feel free to create an issue in the Issues tab and let me know!
